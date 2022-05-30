@@ -1,0 +1,23 @@
+.btn {
+  width: 7rem;
+  color: black;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.btn-filled {
+  background-color: $green2;
+  &:hover {
+    background-color: $green3;
+  }
+}
+
+.btn-empty {
+  background-color:white ;
+  border-color: $green2;
+}
