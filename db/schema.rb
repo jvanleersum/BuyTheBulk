@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2022_05_30_122104) do
     t.float "target_price"
     t.integer "target_amount"
     t.string "supplier_offer_url"
-    t.string "offers"
     t.text "description"
     t.string "category"
     t.string "status"
