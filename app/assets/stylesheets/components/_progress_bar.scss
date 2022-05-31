@@ -1,13 +1,18 @@
-.progress-filled{
-  height:2rem;
-  width:75%;
-  border-radius: 50%;
+.prg {
+  width: 7rem;
+  color: black;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.progress-filled {
   background-color: $green2;
 }
 
-.progress-empty{
-  height:2rem;
-  width:75%;
-  border-radius: 50%;
-  background-color: $lightgrey;
+.progress-empty {
+  background-color: $topgray;
 }
