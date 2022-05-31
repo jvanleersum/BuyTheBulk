@@ -1,4 +1,21 @@
 .container-green {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 5%;
+  border: 1px solid $green2;
+  border-radius: 2%;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  .img-brand {
+    width: 80vw;
+    object-fit: cover;
+    object-position: center;
+  }
+  h1 {
+    color: $textgray;
+  }
+  h3 {
+    color: $textgray;
+  }
 }

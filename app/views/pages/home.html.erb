@@ -1,12 +1,29 @@
-
 <div class="container container-green">
   <% @skip_navbar = true %>
-  <%= image_tag "buythebulk-logo.png" %>
-  <% if current_user.present? %>
-    <h1>Welcome back</h1>
-    <h3><em><%= current_user.first_name %></em></h3>
-  <% else %>
-    <h1>Hello</h1>
-    <h3><em>guest</em></h3>
-  <% end %>
+  <%= image_tag "buythebulk-logo.png", class: "img-brand"%>
+
+  <div class="welcome">
+    <% if current_user.present? %>
+      <h1>Welcome back!</h1>
+      <h3><em><%= current_user.first_name %></em></h3>
+    <% else %>
+      <h1>Welcome!</h1>
+      <h3><em>guest</em></h3>
+    <% end %>
+  </div>
+
+  <div class="row search-offer">
+    <%= form_with url: offers_path, method: :get do |f| %>
+      <%= f.text_field :query,
+        class: "form-field-green",
+        placeholder: 'Search a specific offer',
+        value: params[:query] %>
+      <%= f.submit "Search", class: "button btn-filled" %>
+    <% end %>
+  </div>
+
+  <h4>Search by category</h4>
+  <div class="grid-categories">
+
+  </div>
 </div>
