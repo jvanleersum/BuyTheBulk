@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="container container-green">
+  <% @skip_navbar = true %>
+  <%= image_tag "buythebulk-logo.png" %>
+  <% if current_user.present? %>
+    <h1>Welcome back</h1>
+    <h3><em><%= current_user.first_name %></em></h3>
+  <% else %>
+    <h1>Hello</h1>
+    <h3><em>guest</em></h3>
+  <% end %>
+</div>
