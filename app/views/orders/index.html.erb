@@ -1,0 +1,20 @@
+<div class="container">
+
+  <div class="header text center">
+    <h3>These are your orders:</h3>
+  </div>
+
+    <div class="orders-card flex">
+      <% @orders.each do |order| %>
+      <div class="order-description">
+        <%= order.offer.name %>
+        <%= order.amount %>
+        <%= order.offer.status %>
+      </div>
+      <div>
+        <img src="https://files.slack.com/files-pri/T02NE0241-F03FEQZMZFW/image.png" alt="">
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
