@@ -20,4 +20,8 @@ class OfferPolicy < ApplicationPolicy
   def create?
     return true
   end
+
+  def edit?
+    @offer.user == current_user
+  end
 end
