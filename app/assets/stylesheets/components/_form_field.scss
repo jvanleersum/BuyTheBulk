@@ -1,5 +1,5 @@
 .form-field-green{ 
-  width: 55vw;
+  width: 100%;
   padding: 0.5rem;
   border-radius: 0.5rem;
   margin: 0 auto;
@@ -12,5 +12,6 @@
   }
   &::placeholder {
     font-style: italic;
+    font-weight: lighter;
   }
 }
