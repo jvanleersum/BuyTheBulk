@@ -9,6 +9,7 @@ class CreateOffers < ActiveRecord::Migration[6.1]
       t.string :offers
       t.text :description
       t.string :category
+      t.string :status
       t.datetime :deadline
       t.references :user, null: false, foreign_key: true
       t.references :supplier, null: false, foreign_key: true
