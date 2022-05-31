@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2022_05_30_122104) do
     t.string "offers"
     t.text "description"
     t.string "category"
+    t.string "status"
     t.datetime "deadline"
     t.bigint "user_id", null: false
     t.bigint "supplier_id", null: false
