@@ -1,0 +1,22 @@
+.button {
+  width: 55vw;
+  color: black;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: block;
+  font-size: 120%;
+  margin: 0 auto;
+}
+
+.btn-filled {
+  background-color: $green2;
+  &:hover {
+    background-color: $green3;
+  }
+}
+
+.btn-empty {
+  background-color:white ;
+  border: 0.5px solid $green2;
+}

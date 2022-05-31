@@ -1,12 +1,29 @@
-.navbar-lewagon {
+.navbar {
+  display: flex;
+  background-color: $green2;
+  width: 100vw;
+  height: 50px;
+  padding: 5px;
   justify-content: space-between;
-  background: white;
+  .back-icon, .burguer-icon {
+    width: 30px;
+    position: flex-end;
+    padding: 5px;
+  }
+  .buythebulk-logo {
+    width: 190px;
+    position: flex-end;
+    margin-top: 10px;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.progress {
+  height: 30px;
+  border-radius: 15px;
+  width: 95vw;
+  margin: 0 auto;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.main-card {
+  border: solid 0.5px $green2;
 }
