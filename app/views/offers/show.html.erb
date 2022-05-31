@@ -1,1 +1,18 @@
-<%= @offer.name %>
+<div class="offer-details">
+  <h1><%= @offer.supplier_offer_url %></h1>
+  <div class="progress-bar"></div>
+  <p class="price-currrent">Current Price</p>
+  <h1><%= @offer.name %></h1>
+  <p><%= @offer.description %></p>
+</div>
+
+<div class="amount-card">
+  <div class="amount">
+    <h4>Order Amount</h4>
+    <input type="number">
+  </div>
+  <div class="total">
+    <h5>Total</h5>
+    <h5><%=  %></h5>
+  </div>
+</div>
