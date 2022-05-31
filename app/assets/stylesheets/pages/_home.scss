@@ -1,1 +1,41 @@
-// Specific CSS for your home-page
+.container-green {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: 1px solid $green2;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  .img-brand {
+    width: 80vw;
+    object-fit: cover;
+    object-position: center;
+  }
+  h1 {
+    color: $textgray;
+    font-size: 1.5rem;
+    opacity: 0.9;
+  }
+  h3 {
+    color: $textgray;
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-offer {
+  width: 60vw;
+}
+
+.grid-categories {
+  width: 75vw;
+}
