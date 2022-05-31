@@ -12,7 +12,8 @@ class Offer < ApplicationRecord
   validates :target_amount, presence: true, numericality: { only_integer: true, greater_than: 1}
   validates :supplier_offer_url, presence: true
   validates :category, presence: true, inclusion: { in: %w(furniture textiles decoration kitchenware\ &\ dinnerware take\ away pots\ &\ plants outdoor) }
-  validates :deadline, presence: true, :deadline_cannot_be_in_the_past
+  validates :deadline, presence: true
+  validate :deadline_cannot_be_in_the_past
 
   def deadline_cannot_be_in_the_past
     if deadline.present? && deadline < Date.today

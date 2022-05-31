@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_141020) do
+ActiveRecord::Schema.define(version: 2022_05_30_122104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2022_05_30_141020) do
   create_table "businesses", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "nickname"
     t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 2022_05_30_141020) do
     t.float "target_price"
     t.integer "target_amount"
     t.string "supplier_offer_url"
+    t.string "offers"
+    t.text "description"
+    t.string "category"
+    t.datetime "deadline"
     t.bigint "user_id", null: false
     t.bigint "supplier_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "status"
-    t.text "description"
-    t.string "category"
-    t.datetime "deadline"
     t.index ["supplier_id"], name: "index_offers_on_supplier_id"
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2022_05_30_141020) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
-    t.bigint "business_id", null: false
+    t.bigint "business_id"
     t.boolean "admin", default: false
     t.index ["business_id"], name: "index_users_on_business_id"
     t.index ["email"], name: "index_users_on_email", unique: true
