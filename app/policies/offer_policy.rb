@@ -22,6 +22,18 @@ class OfferPolicy < ApplicationPolicy
   end
 
   def edit?
-    @offer.user == current_user
+    user.admin
+  end
+
+  def update?
+    user.admin
+  end
+
+  def destroy?
+    user.admin
+  end
+
+  def destroy_all?
+    user.admin
   end
 end

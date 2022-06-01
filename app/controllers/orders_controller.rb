@@ -25,4 +25,10 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:order_id])
     authorize @order
   end
+
+  def destroy
+    @order = Order.find(params[:id])
+    authorize @order
+    @order.destroy
+  end
 end

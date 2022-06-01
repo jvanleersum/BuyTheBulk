@@ -1,48 +1,46 @@
-<div class="container container-green">
+<div class="container">
   <% @skip_navbar = true %>
-  <%= image_tag "buythebulk-logo.png", class: "img-brand"%>
+  <div class="container-green">
+    <%= image_tag "buythebulk-logo.png", class: "img-brand"%>
 
-  <div class="welcome">
-    <% if current_user.present? %>
-      <h1>Welcome back!</h1>
-      <h3><em><%= current_user.first_name %></em></h3>
-    <% else %>
-      <h1>Welcome!</h1>
-      <h3><em>guest</em></h3>
-    <% end %>
-  </div>
+    <div class="welcome">
+      <% if current_user.present? %>
+        <h1>Welcome back!</h1>
+        <h3><em><%= current_user.first_name %></em></h3>
+      <% else %>
+        <h1>Welcome</h1>
+        <h3><em>guest!</em></h3>
+      <% end %>
+    </div>
 
-  <div class="row search-offer">
-    <%= form_with url: offers_path, method: :get do |f| %>
-      <%= f.text_field :query,
-        class: "mb-2 form-field-green",
-        placeholder: 'Search a specific offer',
-        value: params[:query] %>
-      <%= f.submit "Search", class: "button btn-filled" %>
-    <% end %>
-  </div>
+    <div class="row search-offer">
+      <%= form_with url: offers_path, method: :get do |f| %>
+        <%= f.text_field :query,
+          class: "mb-2 form-field-green",
+          placeholder: 'Search a specific offer',
+          value: params[:query] %>
+        <%= f.submit "Search", class: "button btn-filled" %>
+      <% end %>
+    </div>
 
-  <h4>Search by category</h4>
-  <div class="grid-categories">
-    <div class="row py-3 justify-content-center">
-      <div class="col-5 card-category" id="furniture">Furniture</div>
-      <div class="col-1"></div>
-      <div class="col-5 card-category selected" id="textiles">Textiles</div>
+    <div class="categories-section" data-controller="select-categories">
+      <h4 class=>Search by category</h4>
+      <div class="categories-grid">
+        <% @categories.each do |categorie|%>
+          <div class="card-category" data-action="click->select-categories#selectCategory" data-select-categories-target="category"><%= categorie %></div>
+        <% end %>
+      </div>
+      
+      <div class="search-offer search-offer-categories">
+        <%= form_with url: offers_path, method: :get do |f| %>
+          <%= f.hidden_field :category, data: { select_categories_target: "hiddenField" }, value: "" %>
+          <%= f.submit "Search", class: "button btn-filled" %>
+        <% end %>
+      </div>
     </div>
-    <div class="row py-3 justify-content-center">
-      <div class="col-5 card-category" id="decoration">Decoration</div>
-      <div class="col-1"></div>
-      <div class="col-5 card-category" id="kitchenware-dinnerware">Kitchenware & dinnerware</div>
-    </div>
-    <div class="row py-3 justify-content-center">
-      <div class="col-5 card-category" id="take-away">Take away</div>
-      <div class="col-1"></div>
-      <div class="col-5 card-category" id="Pots-plants">Pots & plants</div>
-    </div>
-    <div class="row py-3 justify-content-center">
-      <div class="col-5 card-category selected" id="outdoor">Outdoor</div>
-      <div class="col-1"></div>
-      <div class="col-5 card-category" id="all">All products</div>
+    <div class="upload-offer-section">
+      <h4>Not finding what you are looking for?</h6>
+      <%= link_to "Upload an offer", new_offer_path, class: 'button btn-empty btn-upload-offer' %>
     </div>
   </div>
 </div>

@@ -4,6 +4,7 @@ class OrderPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def index?
     return true
   end
@@ -14,5 +15,21 @@ class OrderPolicy < ApplicationPolicy
 
   def confirmation?
     return true
+  end
+
+  def new?
+    return true
+  end
+
+  def create?
+    return true
+  end
+
+  def destroy?
+    user.admin
+  end
+
+  def destroy_all?
+    user.admin
   end
 end
