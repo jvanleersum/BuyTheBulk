@@ -30,7 +30,6 @@ class OffersController < ApplicationController
     if @offer.save
       redirect_to offer_path(@offer), notice: 'Your offer was successfully created! '
     else
-      raise
       render :new
     end
   end
