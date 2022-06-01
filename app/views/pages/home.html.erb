@@ -3,15 +3,15 @@
   <div class="container-green">
     <%= image_tag "buythebulk-logo.png", class: "img-brand"%>
 
-    <div class="welcome">
-      <% if current_user.present? %>
-        <h1>Welcome back!</h1>
-        <h3><em><%= current_user.first_name %></em></h3>
-      <% else %>
-        <h1>Welcome!</h1>
-        <h3><em>guest</em></h3>
-      <% end %>
-    </div>
+  <div class="welcome">
+    <% if current_user.present? %>
+      <h1>Welcome back!</h1>
+      <h3><em><%= current_user.first_name %></em></h3>
+    <% else %>
+      <h1>Welcome</h1>
+      <h3><em>guest!</em></h3>
+    <% end %>
+  </div>
 
     <div class="row search-offer">
       <%= form_with url: offers_path, method: :get do |f| %>
@@ -54,5 +54,9 @@
         <% end %>
       </div>
     </div>
+  </div>
+  <div>
+    <h6>Have you found an offer that suits you?</h6>
+    <div ><%= link_to "Upload an offer", new_offer_path, class: 'button btn-filled' %></div>
   </div>
 </div>
