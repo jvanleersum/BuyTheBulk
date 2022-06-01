@@ -8,10 +8,10 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { initFlatpickr } from "../plugins/flatpickr";
-import '@client-side-validations/client-side-validations/src'
 
 Rails.start()
 Turbolinks.start()
+// import '@client-side-validations/simple-form/src/index.bootstrap4'
 ActiveStorage.start()
 
 import "controllers"
