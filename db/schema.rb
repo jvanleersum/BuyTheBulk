@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_01_093726) do
+ActiveRecord::Schema.define(version: 2022_06_01_125311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2022_06_01_093726) do
     t.string "supplier_offer_url"
     t.text "description"
     t.string "category"
-    t.string "status"
+    t.string "status", default: "active"
     t.datetime "deadline"
     t.bigint "user_id", null: false
     t.bigint "supplier_id", null: false

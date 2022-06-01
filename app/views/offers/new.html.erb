@@ -9,9 +9,9 @@
             <%= f.input :initial_price, html: {class: 'inline-form'}, hint: 'What is the current price/unit' %>
             <%= f.input :target_price, html: {class: 'inline-form'}, hint: 'What is the desired price/unit' %>
             <%= f.input :target_amount, hint: 'What is amount of products to reach the desired price?' %>
-              <%# <%= simple_form_for :order do |f| %>
-              <%# <%= f.input :amount, hint: 'How many will you buy?'%>
-              <%# <% end %>
+               <%= simple_fields_for :order do |f| %>
+               <%= f.input :amount, hint: 'How many will you buy?'%>
+               <% end %>
             <%= f.input :supplier_id, as: :select, include_blank: false, collection: Supplier.all, label_method: :name  %>
             <%= f.input :supplier_offer_url, hint: 'What is the link to the supplier?' %>
             <%= f.input :category, as: :select, include_blank: false, collection: category %>

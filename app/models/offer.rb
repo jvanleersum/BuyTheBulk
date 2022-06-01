@@ -4,7 +4,7 @@ class Offer < ApplicationRecord
   has_many :orders
   has_many :participants, through: :orders, source: :users
   has_many :comments
-  accepts_nested_attributes_for :orders, :supplier
+  accepts_nested_attributes_for :orders
 
   has_one_attached :photo
   validates :name, presence: true, length: { minimum: 10 , maximum: 40 }
@@ -16,6 +16,7 @@ class Offer < ApplicationRecord
   validates :category, presence: true, inclusion: { in: %w(Furniture Textiles Decoration Kitchenware\ &\ Dinnerware Take\ away Pots\ &\ plants Outdoor) }
   validates :deadline, presence: true
   validate :deadline_cannot_be_in_the_past
+  validates :status, inclusion: { in: %w(active inactive)}
 
   def deadline_cannot_be_in_the_past
     if deadline.present? && deadline < Date.today
