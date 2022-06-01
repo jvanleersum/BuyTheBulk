@@ -1,5 +1,28 @@
-<% @offers.each do |offer| %>
-  <% if policy(offer).show? %>
-    <%= link_to offer.name, offer_path(offer) %>
+<div class="search-offer-cards">
+    <%= form_with url: offers_path, method: :get, class:"form-row" do |f| %>
+      <%= f.text_field :query,
+        class: "mb-2 form-field-green form-field-left",
+        placeholder: 'Search a specific offer',
+        value: params[:query] %>
+      <%= f.submit "Search", class: "button btn-filled btn-right" %>
+    <% end %>
+  </div>
+
+
+<div class="container grid-offer-cards">
+  <% @offers.each do |offer| %>
+    <% if policy(offer).show? %>
+      <div class="offer-card">
+        <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-offer-card"%>
+        <div class="progress-card-details">
+          <p><%= offer.ordered_amount %> / <%= offer.target_amount %></p>
+          <p>€<%= offer.target_price %></p>
+        </div>
+        <div class="offer-card-details">
+          <h4><%= offer.name %></h4>
+          <p><%= truncate(offer.description, :length => 125) %></p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
