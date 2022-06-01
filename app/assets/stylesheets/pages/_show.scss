@@ -1,0 +1,20 @@
+.offer-details {
+  width: 85%;
+  border: solid 2px $green2;
+  margin: 0 auto;
+  .photo {
+    margin: 0 auto;
+  }
+  img {
+    margin: 0 auto;
+  }
+  h1 {
+    text-align: right;
+  }
+  .progress-bar {
+    width: 100%;
+    background: linear-gradient(0.25turn, $green4, $green1);
+    height: 25px;
+    border-radius: 10px;
+  }
+}
