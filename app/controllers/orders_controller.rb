@@ -7,5 +7,9 @@ class OrdersController < ApplicationController
   def confirmation
   end
 
-
+  def destroy
+    @order = Order.find(params[:id])
+    authorize @order
+    @order.destroy
+  end
 end

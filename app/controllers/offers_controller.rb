@@ -30,9 +30,44 @@ class OffersController < ApplicationController
     if @offer.save
       redirect_to offer_path(@offer), notice: 'Your offer was successfully created! '
     else
-      raise
       render :new
     end
+  end
+
+  def edit
+    @offer = Offer.find(params[:id])
+    authorize @offer
+  end
+
+  def update
+    @offer = Offer.find(params[:id])
+    authorize @offer
+    @offer.update(offer_params)
+  end
+
+  def destroy
+    @offer = Offers.find(params[:id])
+    authorize @offer
+    @offer.destroy
+
+    redirect_to offers_path
+  end
+
+  def destroy_all
+    @offers = Offer.all
+    @offers.each do |offer|
+      offer.orders.each do |order|
+        authorize order
+        order.destroy
+      end
+      authorize offer
+      offer.comments.each do |comment|
+        comment.destroy
+      end
+      offer.destroy
+    end
+
+    redirect_to offers_path
   end
 
   private

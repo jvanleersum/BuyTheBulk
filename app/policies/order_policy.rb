@@ -20,4 +20,12 @@ class OrderPolicy < ApplicationPolicy
   def create?
     return true
   end
+
+  def destroy?
+    user.admin
+  end
+
+  def destroy_all?
+    user.admin
+  end
 end
