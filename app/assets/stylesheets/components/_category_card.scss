@@ -1,0 +1,17 @@
+.card-category {
+  background-color: $topgray;
+  color: black;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 120%;
+  height: 14vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selected{
+  background-color: $green2;
+  border: 1px solid black;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
