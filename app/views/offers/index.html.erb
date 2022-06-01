@@ -9,6 +9,10 @@
       <% end %>
     </div>
 </div>
+<% if policy(@offers).destroy_all? %>
+<h2>DANGER ADMIN! THIS WILL DELETE ALL THE SEEDS!!</h2>
+<%= link_to "Delete all", destroy_all_path, method: :delete %>
+<% end %>
 
 <div class="container grid-offer-cards">
   <% @offers.each do |offer| %>
