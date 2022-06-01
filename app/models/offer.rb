@@ -4,6 +4,7 @@ class Offer < ApplicationRecord
   has_many :orders
   has_many :participants, through: :orders, source: :users
   has_many :comments
+  accepts_nested_attributes_for :orders, :supplier
 
   has_one_attached :photo
 
