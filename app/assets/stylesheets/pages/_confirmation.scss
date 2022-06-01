@@ -1,0 +1,57 @@
+.container-confirm{
+  margin: 2rem auto;
+  width: 90%;
+  justify-content: center;
+  border: solid 0.2rem $green2;
+  padding: 1rem;
+  text-align: center;
+}
+
+// .container-confirm img {
+//   max-width: 100%;
+// }
+
+.order-summary {
+  background-color: $green2;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  height: max-content;
+}
+
+.image img{
+  border-radius: 0.5rem;
+  padding-bottom: 2rem;
+  object-fit: contain;
+  max-width:100%;
+  max-height:100%
+}
+// img {
+//   max-width: 90%;
+//   max-height: 40%;
+//   border-radius: 0.5rem;
+//   padding-bottom: 2rem;
+// }
+
+.order-info {
+  padding-top: 1rem;
+}
+.order-amount {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.order-progress {
+  padding:1rem;
+  margin: 0 auto;
+}
+
+.buttons{
+  padding: 0.5rem;
+}

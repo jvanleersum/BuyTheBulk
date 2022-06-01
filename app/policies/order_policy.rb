@@ -8,6 +8,10 @@ class OrderPolicy < ApplicationPolicy
     return true
   end
 
+  def show?
+    return true
+  end
+
   def confirmation?
     return true
   end
