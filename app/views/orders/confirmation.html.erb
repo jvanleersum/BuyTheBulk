@@ -1,7 +1,30 @@
-<div class="container">
-  <div class="confirm-felx">
+<div class="container-confirm flex">
+  <div class="header">
     <h2>Congratulations!</h2>
     <p>Your order was successful</p>
-    <%= order.offer.name %>
   </div>
+
+  <div class="order-summary">
+    <h3>Order Summary</h3>
+    <div class="image">
+      <h6>!!!image here!!!</h6>
+    </div>
+    <h3><%= @order.offer.name %></h3>
+    <div class="order-info">
+      <div class="order-amount flex">
+        <h6>Amount</h6><%= @order.amount %>
+      </div>
+      <div class="order-total flex">
+        <h4>Total</h4>
+      </div>
+    </div>
+  </div>
+  <div class="order-progress">
+    <h2>Bulk Order Progress</h2>
+    <p>!!!pogress bar here!!!</p>
+    <h6>Only ... cups left until order completed</h6>
+  </div>
+  <button class="button btn-filled">Keep Browsing</button>
+  <br>
+  <button class="button btn-empty">Dashboard</button>
 </div>
