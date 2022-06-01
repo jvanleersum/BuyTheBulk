@@ -1,6 +1,6 @@
 <div class="container-show">
   <div class="offer-details">
-    <h1><%= @offer.supplier_offer_url %></h1>
+    <div class="od-pic"><%= image_tag "top" %></div>
     <div class="progress-bar"></div>
     <p class="price-currrent">Current Price</p>
     <h1><%= @offer.name %></h1>
@@ -24,6 +24,22 @@
   </div>
 
   <div class="bulkers-card">
-
+    <div class="bc-1">
+      <div class="bc-1-text">
+        <p> <%= @offer.user.first_name %> <%= @offer.user.last_name %></p>
+        <p>Is placing this order</p>
+      </div>
+      <div class="bc-1-img">
+        <%= image_tag "shapes_", class:"a1" %>
+      </div>
+    </div>
+    <div class="bc-2">
+      <div class="bc-2-img">
+        <%= image_tag "shapes_", class:"avatar" %>
+        <%= image_tag "shapes_", class:"avatar" %>
+        <%= image_tag "shapes_", class:"avatar" %>
+      </div>
+      <p>45 other bulkers joined</p>
+    </div>
   </div>
 </div>

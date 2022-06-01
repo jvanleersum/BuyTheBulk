@@ -10,6 +10,15 @@
   width: 85%;
   margin: 0 auto;
   padding: 20px;
+  .od-pic {
+    width: 20rem;
+    height: 20rem;
+    margin: 0 auto;
+  }
+  .od-pic img {
+    max-width:100%;
+    max-height:100%;
+  }
   .photo {
     margin: 0 auto;
   }
@@ -54,5 +63,34 @@
     border: none;
     background-color: $topgray;
     height: 35px;
+  }
+}
+
+.bulkers-card {
+  border-radius: 6px;
+  border: 0.5px solid black;
+  margin: 0 auto;
+  width: 85%;
+  padding: 20px;
+  font-family: 'DM Sans';
+  background-color: $green3;
+  .bc-1 {
+    display: flex;
+
+  }
+  .bc-2 {
+    display: flex;
+    height: 50%;
+  }
+  .a1 {
+    border-radius: 50%;
+    width: 50%;
+  }
+  p {
+    margin: 0;
+  }
+  .bc-1-img {
+    width: 30%;
+    height: 60%;
   }
 }
