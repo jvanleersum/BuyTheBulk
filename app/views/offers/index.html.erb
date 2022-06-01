@@ -1,13 +1,13 @@
 <div class="container">
   <div class="search-offer-cards">
-      <%= form_with url: offers_path, method: :get, class:"form-row" do |f| %>
-        <%= f.text_field :query,
-          class: "mb-2 form-field-green form-field-left",
-          placeholder: 'Search a specific offer',
-          value: params[:query] %>
-        <%= f.submit "Search", class: "button btn-filled btn-right" %>
-      <% end %>
-    </div>
+    <%= form_with url: offers_path, method: :get, class:"form-row" do |f| %>
+      <%= f.text_field :query,
+        class: "mb-2 form-field-green form-field-left",
+        placeholder: 'Search a specific offer',
+        value: params[:query] %>
+      <%= f.submit "Search", class: "button btn-filled btn-right" %>
+    <% end %>
+  </div>
 </div>
 
 <div class="container grid-offer-cards">

@@ -4,13 +4,14 @@
   align-items: center;
   justify-content: space-evenly;
   margin: 5%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
   border: 1px solid $green2;
   border-radius: 0.5rem;
   box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
   .img-brand {
-    width: 80vw;
+    width: 100%;
+    margin: 1.5rem 0;
     object-fit: cover;
     object-position: center;
   }
@@ -33,7 +34,15 @@
 }
 
 .search-offer {
-  width: 60vw;
+  width: 80vw;
+  margin: 3rem 0;
+  margin-top: 3rem !important;
+}
+
+.search-offer-categories {
+  width: 75vw;
+  margin: 1.5rem 0;
+  margin-top: 1.5rem !important;
 }
 
 .grid-categories {
