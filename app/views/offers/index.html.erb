@@ -1,3 +1,4 @@
+
 <% @offers.each do |offer| %>
   <% if policy(offer).show? %>
     <%= link_to offer.name, offer_path(offer) %>
