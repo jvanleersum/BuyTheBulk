@@ -6,10 +6,12 @@
     .form-field-left{
       flex-grow: 1;
       margin: 0.5rem;
+      margin-left: 0;
     }
     .btn-right {
       width: 25vw;
       margin: 0.5rem;
+      margin-right: 0;
     }
   }
 }
@@ -33,7 +35,10 @@
     border-radius: 0.5rem;
   }
 }
-
+.selected-card{
+  border: 1px solid $green1;
+  box-shadow: 0 0 10px $green1;
+}
 .progress-card-details {
   display: flex;
   justify-content: space-between;
@@ -58,7 +63,7 @@
   }
 }
 
-@media(max-width: 992px) {
+@media(max-width: 1200px) {
   .grid-offer-cards {
     grid-template-columns: 1fr 1fr;
   }
