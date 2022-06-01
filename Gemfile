@@ -25,7 +25,7 @@ gem 'pundit'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # Client-side validation works for validating through javascript on the clientside
-# gem 'simple_form', github: 'heartcombo/simple_form'
+ gem 'simple_form', github: 'heartcombo/simple_form'
 # gem 'client_side_validations'
 # gem 'client_side_validations-simple_form'
 
