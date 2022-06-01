@@ -11,7 +11,7 @@ class Offer < ApplicationRecord
   validates :target_price, presence: true, numericality: { less_than: :initial_price }
   validates :target_amount, presence: true, numericality: { only_integer: true, greater_than: 1}
   validates :supplier_offer_url, presence: true
-  validates :category, presence: true, inclusion: { in: %w(furniture textiles decoration kitchenware\ &\ dinnerware take\ away pots\ &\ plants outdoor) }
+  validates :category, presence: true, inclusion: { in: %w(Furniture Textiles Decoration Kitchenware\ &\ Dinnerware Take\ away Pots\ &\ plants Outdoor) }
   validates :deadline, presence: true
   validate :deadline_cannot_be_in_the_past
 
