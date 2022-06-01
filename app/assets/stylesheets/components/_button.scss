@@ -1,6 +1,6 @@
 .button {
   width: 100%;
-  color: black;
+  color: $gray;
   text-align: center;
   padding: 0.5rem;
   border: none;
@@ -12,8 +12,10 @@
 // Call to action
 .btn-filled {
   background-color: $green2;
+  text-decoration: none;
   &:hover {
     background-color: $green3;
+    color: $gray;
   }
 }
 // Secondary btn
