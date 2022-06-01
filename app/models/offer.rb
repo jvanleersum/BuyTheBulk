@@ -22,4 +22,8 @@ class Offer < ApplicationRecord
       errors.add(:deadline, "can't be in the past")
     end
   end
+
+  def ordered_amount
+    orders.reduce(0) { |sum, order| sum + order.amount }
+  end
 end
