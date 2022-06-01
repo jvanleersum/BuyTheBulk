@@ -65,6 +65,9 @@
 .card-links{
   text-decoration: none;
   color: black;
+  &:hover{
+    color: black;
+  }
 }
 
 @media(max-width: 1200px) {

@@ -23,16 +23,17 @@
       <% end %>
     </div>
 
-    <div class="categories-section"data-controller="select-categories">
+    <div class="categories-section" data-controller="select-categories">
       <h4 class=>Search by category</h4>
       <div class="categories-grid">
         <% @categories.each do |categorie|%>
-          <div class="card-category" data-select-categories-target="category"><%= categorie %></div>
+          <div class="card-category" data-action="click->select-categories#selectCategory" data-select-categories-target="category"><%= categorie %></div>
         <% end %>
       </div>
       
       <div class="search-offer search-offer-categories">
         <%= form_with url: offers_path, method: :get do |f| %>
+          <%= f.hidden_field :category, data: { select_categories_target: "hiddenField" }, value: "" %>
           <%= f.submit "Search", class: "button btn-filled" %>
         <% end %>
       </div>

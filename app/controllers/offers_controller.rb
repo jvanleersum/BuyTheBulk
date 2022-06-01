@@ -4,9 +4,21 @@ class OffersController < ApplicationController
     if params[:query].present?
       sql_query = 'name ILIKE :query OR description ILIKE :query'
       @offers = policy_scope(Offer).where(sql_query, query: "%#{params[:query]}%").order(deadline: :desc)
+    elsif params[:category].present?
+      if params[:category].length > 1
+        categories = params[:category].split("-").map { |c| "category ILIKE '#{c}'" }
+        sql_query = categories.join(" OR ")
+        @offers = policy_scope(Offer).where(sql_query).order(deadline: :desc)
+      elsif params[:category] != "all"
+        sql_query = 'category ILIKE :category'
+        @offers = policy_scope(Offer).where(sql_query, category: "%#{params[:category]}%").order(deadline: :desc)
+      else
+        @offers = policy_scope(Offer).order(deadline: :desc)
+      end
     else
       @offers = policy_scope(Offer).order(deadline: :desc)
     end
+    
   end
 
   def show
