@@ -23,33 +23,36 @@
       <% end %>
     </div>
 
-    <h4>Search by category</h4>
-    <div class="grid-categories">
-      <div class="row py-3 justify-content-center">
-        <div class="col-5 card-category" id="furniture">Furniture</div>
-        <div class="col-1"></div>
-        <div class="col-5 card-category selected" id="textiles">Textiles</div>
+    <div data-controller="select-categories">
+      <h4>Search by category</h4>
+      <div class="grid-categories">
+        
+        <div class="row py-3 justify-content-center">
+          <div class="col-5 card-category" id="furniture" data-select-categories-target="category">Furniture</div>
+          <div class="col-1"></div>
+          <div class="col-5 card-category selected" id="textiles" data-select-categories-target="category">Textiles</div>
+        </div>
+        <div class="row py-3 justify-content-center">
+          <div class="col-5 card-category" id="decoration" data-select-categories-target="category">Decoration</div>
+          <div class="col-1"></div>
+          <div class="col-5 card-category" id="kitchenware-dinnerware" data-select-categories-target="category">Kitchenware & dinnerware</div>
+        </div>
+        <div class="row py-3 justify-content-center">
+          <div class="col-5 card-category" id="take-away" data-select-categories-target="category">Take away</div>
+          <div class="col-1"></div>
+          <div class="col-5 card-category" id="Pots-plants" data-select-categories-target="category">Pots & plants</div>
+        </div>
+        <div class="row py-3 justify-content-center">
+          <div class="col-5 card-category selected" id="outdoor" data-select-categories-target="category">Outdoor</div>
+          <div class="col-1"></div>
+          <div class="col-5 card-category" id="all" data-select-categories-target="all">All products</div>
+        </div>
       </div>
-      <div class="row py-3 justify-content-center">
-        <div class="col-5 card-category" id="decoration">Decoration</div>
-        <div class="col-1"></div>
-        <div class="col-5 card-category" id="kitchenware-dinnerware">Kitchenware & dinnerware</div>
+      <div class="search-offer search-offer-categories">
+        <%= form_with url: offers_path, method: :get do |f| %>
+          <%= f.submit "Search", class: "button btn-filled" %>
+        <% end %>
       </div>
-      <div class="row py-3 justify-content-center">
-        <div class="col-5 card-category" id="take-away">Take away</div>
-        <div class="col-1"></div>
-        <div class="col-5 card-category" id="Pots-plants">Pots & plants</div>
-      </div>
-      <div class="row py-3 justify-content-center">
-        <div class="col-5 card-category selected" id="outdoor">Outdoor</div>
-        <div class="col-1"></div>
-        <div class="col-5 card-category" id="all">All products</div>
-      </div>
-    </div>
-    <div class="search-offer search-offer-categories">
-      <%= form_with url: offers_path, method: :get do |f| %>
-        <%= f.submit "Search", class: "button btn-filled" %>
-      <% end %>
     </div>
   </div>
 </div>
