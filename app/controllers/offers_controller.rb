@@ -8,4 +8,13 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     authorize @offer
   end
+
+  def new
+    @offer = Offer.new
+    authorize @offer
+  end
+
+  def create
+
+  end
 end
