@@ -1,8 +1,8 @@
 <% category = %w(furniture textiles decoration kitchenware\ &\ dinnerware take\ away pots\ &\ plants outdoor) %>
 <% category.each { |name| name.capitalize!}%>
   <div class="container">
-    <div class="row justify-content-center" style="margin-top: 4rem">
-      <div class="col-lg-6 col-sm-12">
+    <div class="row justify-content-center" style="margin-top: 2rem">
+      <div class="col-lg-6 col-sm-9">
           <%= simple_form_for @offer do |f| %>
             <%= f.input :name, hint: 'Remember, being creative can help you out' %>
             <%= f.input :description, hint: 'Provide a detailed description. Example: Size, material, quality...'%>
