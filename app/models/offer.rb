@@ -5,6 +5,8 @@ class Offer < ApplicationRecord
   has_many :participants, through: :orders, source: :users
   has_many :comments
 
+  has_one_attached :photo
+
   validates :name, presence: true, length: { minimum: 10 , maximum: 40 }
   validates :description, presence: true, length: { minimum: 50 , maximum: 200 }
   validates :initial_price, presence: true
