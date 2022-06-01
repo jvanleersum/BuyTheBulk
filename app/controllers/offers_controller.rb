@@ -19,13 +19,13 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
-    # @order = Order.new(order_params)
+    @order = Order.new(order_params)
     authorize @offer
-    # authorize @order
+    authorize @order
     @user = current_user
     @offer.user = @user
-    # @order.offer = @offer
-    # @order.user = current_user
+    @order.offer = @offer
+    @order.user = current_user
 
     if @offer.save
       redirect_to offer_path(@offer), notice: 'Your offer was successfully created! '
@@ -43,7 +43,7 @@ class OffersController < ApplicationController
       :name, :description, :initial_price, :target_price,:target_amount, :target_amount)
   end
 
-  # def order_params
-  #   params.require(:order).permit(:amount)
-  # end
+   def order_params
+     params.require(:order).permit(:amount)
+   end
 end
