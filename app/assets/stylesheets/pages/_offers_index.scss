@@ -53,13 +53,20 @@
   display: flex;
   flex-direction: column;
   h4 {
-    height: 3rem;
     font-size: 1.5rem;
     padding: 0.5rem;
   }
   p {
     font-size: 1rem;
     padding: 0.5rem;
+  }
+}
+
+.card-links{
+  text-decoration: none;
+  color: black;
+  &:hover{
+    color: black;
   }
 }
 
