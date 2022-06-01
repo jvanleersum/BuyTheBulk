@@ -12,9 +12,38 @@ class OffersController < ApplicationController
   def new
     @offer = Offer.new
     authorize @offer
+    # @order = Order.new
+    # authorize @order
+
   end
 
   def create
+    @offer = Offer.new(offer_params)
+    @order = Order.new(order_params)
+    authorize @offer
+    authorize @order
+    @user = current_user
+    @offer.user = @user
+    @order.offer = @offer
+    @order.user = current_user
 
+    if @offer.save
+      redirect_to offer_path(@offer), notice: 'Your offer was successfully created! '
+    else
+      raise
+      render :new
+    end
   end
+
+  private
+
+  def offer_params
+    params.require(:offer).permit(
+      :supplier_offer_url, :supplier_id, :category, :deadline, :photo,
+      :name, :description, :initial_price, :target_price,:target_amount, :target_amount)
+  end
+
+   def order_params
+     params.require(:order).permit(:amount)
+   end
 end

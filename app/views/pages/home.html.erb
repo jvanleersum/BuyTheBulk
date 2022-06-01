@@ -7,8 +7,8 @@
       <h1>Welcome back!</h1>
       <h3><em><%= current_user.first_name %></em></h3>
     <% else %>
-      <h1>Welcome!</h1>
-      <h3><em>guest</em></h3>
+      <h1>Welcome</h1>
+      <h3><em>guest!</em></h3>
     <% end %>
   </div>
 
@@ -44,5 +44,9 @@
       <div class="col-1"></div>
       <div class="col-5 card-category" id="all">All products</div>
     </div>
+  </div>
+  <div>
+    <h6>Have you found an offer that suits you?</h6>
+    <div ><%= link_to "Upload an offer", new_offer_path, class: 'button btn-filled' %></div>
   </div>
 </div>
