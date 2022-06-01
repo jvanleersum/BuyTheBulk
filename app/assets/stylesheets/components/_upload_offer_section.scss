@@ -1,0 +1,15 @@
+.upload-offer-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75vw;
+  h4 {
+    width: 60vw;
+    text-align: center;
+  }
+  .btn-upload-offer{
+    width: 100%;
+    margin: 1.5rem 0;
+    margin-bottom: 3rem !important;
+  }
+}

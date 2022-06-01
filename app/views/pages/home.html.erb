@@ -3,15 +3,15 @@
   <div class="container-green">
     <%= image_tag "buythebulk-logo.png", class: "img-brand"%>
 
-  <div class="welcome">
-    <% if current_user.present? %>
-      <h1>Welcome back!</h1>
-      <h3><em><%= current_user.first_name %></em></h3>
-    <% else %>
-      <h1>Welcome</h1>
-      <h3><em>guest!</em></h3>
-    <% end %>
-  </div>
+    <div class="welcome">
+      <% if current_user.present? %>
+        <h1>Welcome back!</h1>
+        <h3><em><%= current_user.first_name %></em></h3>
+      <% else %>
+        <h1>Welcome</h1>
+        <h3><em>guest!</em></h3>
+      <% end %>
+    </div>
 
     <div class="row search-offer">
       <%= form_with url: offers_path, method: :get do |f| %>
@@ -23,40 +23,23 @@
       <% end %>
     </div>
 
-    <div data-controller="select-categories">
-      <h4>Search by category</h4>
-      <div class="grid-categories">
-        
-        <div class="row py-3 justify-content-center">
-          <div class="col-5 card-category" id="furniture" data-select-categories-target="category">Furniture</div>
-          <div class="col-1"></div>
-          <div class="col-5 card-category selected" id="textiles" data-select-categories-target="category">Textiles</div>
-        </div>
-        <div class="row py-3 justify-content-center">
-          <div class="col-5 card-category" id="decoration" data-select-categories-target="category">Decoration</div>
-          <div class="col-1"></div>
-          <div class="col-5 card-category" id="kitchenware-dinnerware" data-select-categories-target="category">Kitchenware & dinnerware</div>
-        </div>
-        <div class="row py-3 justify-content-center">
-          <div class="col-5 card-category" id="take-away" data-select-categories-target="category">Take away</div>
-          <div class="col-1"></div>
-          <div class="col-5 card-category" id="Pots-plants" data-select-categories-target="category">Pots & plants</div>
-        </div>
-        <div class="row py-3 justify-content-center">
-          <div class="col-5 card-category selected" id="outdoor" data-select-categories-target="category">Outdoor</div>
-          <div class="col-1"></div>
-          <div class="col-5 card-category" id="all" data-select-categories-target="all">All products</div>
-        </div>
+    <div class="categories-section"data-controller="select-categories">
+      <h4 class=>Search by category</h4>
+      <div class="categories-grid">
+        <% @categories.each do |categorie|%>
+          <div class="card-category" data-select-categories-target="category"><%= categorie %></div>
+        <% end %>
       </div>
+      
       <div class="search-offer search-offer-categories">
         <%= form_with url: offers_path, method: :get do |f| %>
           <%= f.submit "Search", class: "button btn-filled" %>
         <% end %>
       </div>
     </div>
-  </div>
-  <div>
-    <h6>Have you found an offer that suits you?</h6>
-    <div ><%= link_to "Upload an offer", new_offer_path, class: 'button btn-filled' %></div>
+    <div class="upload-offer-section">
+      <h4>Not finding what you are looking for?</h6>
+      <%= link_to "Upload an offer", new_offer_path, class: 'button btn-empty btn-upload-offer' %>
+    </div>
   </div>
 </div>
