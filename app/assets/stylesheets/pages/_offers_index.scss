@@ -1,5 +1,15 @@
+.index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .upload-offer-section {
+    width: 90%;
+  }
+}
+
 .search-offer-cards {
   margin-top: 1rem;
+  width: 90%;
   .form-row {
     display: flex;
     justify-content: center;
