@@ -13,19 +13,18 @@
 
 <%# Order card with input for amount of products requiered %>
   <div class="amount-card">
-    <%= simple_form_for [ @offer ] do |f| %>
-
-      <p><%= f.input :target_amount, label: "Order amount"  %></p>
-
-    <div class="total">
-      <p>Total</p>
-      <p><i>€ 250,00</i></p>
-    </div>
-    <div class="savings">
-      <p>You're saving</p>
-      <p>€ 54,30</p>
-    </div>
+    <%= simple_form_for [ @offer, @order ] do |f| %>
+      <p><%= f.input :amount, label: "Order amount"  %></p>
+      <div class="total">
+        <p>Total</p>
+        <p><i>€ 250,00</i></p>
+      </div>
+      <div class="savings">
+        <p>You're saving</p>
+        <p>€ 54,30</p>
+      </div>
         <%= f.submit %>
+          <%# <%= link_to f.submit "Order", order_order_confirmation_path(@order_id), method: :post, class: "button btn-filled" %> %>
     <% end %>
 
   </div>
