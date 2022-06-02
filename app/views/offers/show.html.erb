@@ -1,4 +1,6 @@
 <div class="container-show">
+
+<%# Card with offer details %>
   <div class="offer-details">
     <div class="od-pic">
       <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-offer-card"%>
@@ -9,11 +11,12 @@
     <p><%= @offer.description %></p>
   </div>
 
+<%# Order card with input for amount of products requiered %>
   <div class="amount-card">
-    <div class="amount">
-      <p>Order Amount</p>
-      <input type="number" placeholder="€ 00,00">
-    </div>
+    <%= simple_form_for [ @offer ] do |f| %>
+
+      <p><%= f.input :target_amount, label: "Order amount"  %></p>
+
     <div class="total">
       <p>Total</p>
       <p><i>€ 250,00</i></p>
@@ -22,8 +25,11 @@
       <p>You're saving</p>
       <p>€ 54,30</p>
     </div>
-    <a href="" class="button btn-filled">Order</a>
+        <%= f.submit %>
+    <% end %>
+
   </div>
+
 
   <div class="bulkers-card">
 
