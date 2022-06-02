@@ -4,6 +4,7 @@
   align-items: center;
   .upload-offer-section {
     width: 90%;
+    margin-top: 1.5rem !important;
   }
 }
 
@@ -81,6 +82,12 @@
   }
 }
 
+.offer-deadline {
+  font-weight: lighter;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
 @media(max-width: 1200px) {
   .grid-offer-cards {
     grid-template-columns: 1fr 1fr;
@@ -92,3 +99,4 @@
     grid-template-columns: 1fr;
   }
 }
+
