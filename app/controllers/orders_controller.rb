@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     authorize @offer
     @order.offer = @offer
+    redirect_to order_order_confirmation_path
   end
 
   def order_params
