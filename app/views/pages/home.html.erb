@@ -13,8 +13,8 @@
       <% end %>
     </div>
 
-    <div class="row search-offer">
-      <%= form_with url: offers_path, method: :get do |f| %>
+    <div class="search-offer">
+      <%= form_with url: offers_path, method: :get, style:"padding-right: 0;padding-left: 0;" do |f| %>
         <%= f.text_field :query,
           class: "mb-2 form-field-green",
           placeholder: 'Search a specific offer',
