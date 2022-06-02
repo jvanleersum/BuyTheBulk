@@ -17,23 +17,32 @@
       <p><%= f.input :amount, label: "Order amount"  %></p>
       <div class="total">
         <p>Total</p>
-        <p><i>€ 250,00</i></p>
+        <p><i><%# (@order.amount*@offer.initial_price) %></i></p>
       </div>
       <div class="savings">
         <p>You're saving</p>
         <p>€ 54,30</p>
       </div>
-        <%= f.submit %>
-          <%# <%= link_to f.submit "Order", order_order_confirmation_path(@order_id), method: :post, class: "button btn-filled" %> %>
+        <%= f.submit "Order", class: "button btn-filled" %>
     <% end %>
-
   </div>
 
 
   <div class="bulkers-card">
 
+    <div class="bulker-info">
+      <p class="bulker-name">Susanito Perex</p>
+      <div class="img-div"><%= image_tag "shapes_", class: "img-avatar" %> </div>
+    </div>
+
+    <div class="bulkers-in">
+      <div class="img-div"><%= image_tag "shapes_" %> </div>
+      <p>45 other bulkers joined</p>
+    </div>
 
   </div>
+
+
   <% if policy(@offer).edit? %>
   <%= link_to "Edit this offer", edit_offer_path(@offer) %>
   <%= link_to "Delete the offer", offer_path(@offer), method: :delete %>
