@@ -24,6 +24,9 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
     authorize @offer
+    @order = Order.new
+    authorize @offer
+    @order.offer = @offer
   end
 
   def new
@@ -103,7 +106,7 @@ class OffersController < ApplicationController
       :name, :description, :initial_price, :target_price,:target_amount, :target_amount)
   end
 
-   def order_params
-     params.require(:order).permit(:amount)
-   end
+  def order_params
+    params.require(:order).permit(:amount)
+  end
 end
