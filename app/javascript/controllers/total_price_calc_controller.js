@@ -11,7 +11,7 @@ export default class extends Controller {
 
   updatePrice(e) {
     const total = (this.unitPriceValue * this.amountTarget.value).toFixed(2)
-    this.totalTarget.innerText = `${total}€`
+    this.totalTarget.innerText = `${total} €`
     // total = (order.amount * offer.initial_price)
   }
 }
