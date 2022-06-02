@@ -12,16 +12,16 @@
   </div>
 
 <%# Order card with input for amount of products requiered %>
-  <div class="amount-card">
-    <%= simple_form_for [ @offer, @order ] do |f| %>
-      <p><%= f.input :amount, label: "Order amount"  %></p>
+  <div class="amount-card" data-controller="total-price-calc"  data-total-price-calc-unit-price-value="<%= @offer.initial_price %>">
+    <%= simple_form_for [ @offer, @order ], data: {action: "change input->total-price-calc#updatePrice"} do |f| %>
+      <p><%= f.input :amount, label: "Order amount", input_html: { data: { total_price_calc_target:"amount" } } %></p>
       <div class="total">
         <p>Total</p>
-        <p><i>€ 250,00</i></p>
+        <p data-total-price-calc-target="total"><i></i></p>
       </div>
       <div class="savings">
         <p>You're saving</p>
-        <p>€ 54,30</p>
+        <p data-total-price-calc-target="savings">€ 54,30</p>
       </div>
         <%= f.submit %>
           <%# <%= link_to f.submit "Order", order_order_confirmation_path(@order_id), method: :post, class: "button btn-filled" %> %>
