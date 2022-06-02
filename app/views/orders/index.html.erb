@@ -8,7 +8,11 @@
       <% @orders.each do |order| %>
       <div class="order-description flex">
         <div class="order-img">
-          <h6>image here</h6>
+          <% if order.offer.photo.key %>
+              <%= cl_image_tag order.offer.photo.key, class: "order-img" %>
+            <% else %>
+            <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"order-img"%>
+            <% end %>
         </div>
         <div class="order-info">
           <h4><%= order.offer.name %></h4>
