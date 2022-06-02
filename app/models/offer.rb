@@ -40,4 +40,8 @@ class Offer < ApplicationRecord
       return "in #{days} days"
     end
   end
+
+  def progress_percentage
+    (ordered_amount / target_amount.to_f)*100
+  end
 end

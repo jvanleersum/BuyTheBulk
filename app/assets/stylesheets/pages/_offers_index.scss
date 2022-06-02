@@ -103,6 +103,10 @@
   }
 }
 
+.offer-card-progress-bar {
+  padding: 0.5rem;
+}
+
 @media(max-width: 1200px) {
   .grid-offer-cards {
     grid-template-columns: 1fr 1fr;

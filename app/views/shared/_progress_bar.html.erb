@@ -1,0 +1,9 @@
+<div class="progress-bar__container">
+  <div class="progress-bar-filled" 
+    <% if offer.progress_percentage >= 100 %>
+      style="background-color: #A4C3B2; transform: translate(100%, 0px);"
+    <% else %>
+      style="background-color: #CCE3DE; transform: translate(<%= offer.progress_percentage %>%, 0px);"
+    <% end %>>
+  </div>
+</div>
