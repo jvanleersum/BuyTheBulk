@@ -15,7 +15,12 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     authorize @offer
     @order.offer = @offer
-    redirect_to order_order_confirmation_path
+    @order.user = current_user
+    if @order.save!
+      redirect_to order_confirmation_path(@order)
+    else
+      render "offers/show"
+    end
   end
 
   def order_params

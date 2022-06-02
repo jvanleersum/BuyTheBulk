@@ -1,3 +1,5 @@
+require 'date'
+
 class Offer < ApplicationRecord
   belongs_to :user
   belongs_to :supplier
@@ -26,5 +28,16 @@ class Offer < ApplicationRecord
 
   def ordered_amount
     orders.reduce(0) { |sum, order| sum + order.amount }
+  end
+
+  def days_until_deadline
+    days = (deadline.to_datetime - Date.today).to_i
+    if days == 1
+      return "in #{days} day"
+    elsif days == 0
+      return "today"
+    else
+      return "in #{days} days"
+    end
   end
 end

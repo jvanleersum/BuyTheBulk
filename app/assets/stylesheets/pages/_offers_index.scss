@@ -4,6 +4,7 @@
   align-items: center;
   .upload-offer-section {
     width: 90%;
+    margin-top: 1.5rem !important;
   }
 }
 
@@ -43,7 +44,7 @@
     height: 30vh;
     object-fit: cover;
     object-position: center;
-    border-radius: 0.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
   }
 }
 .selected-card{
@@ -81,6 +82,27 @@
   }
 }
 
+
+.offer-card-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  .offer-deadline {
+    font-weight: lighter;
+    font-size: 1rem;
+    margin-bottom: 0 !important;
+  }
+  .offer-category{
+    background-color: white;
+    border: 1px solid $green2;
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 0.5rem;
+    font-weight: lighter;
+  }
+}
+
 @media(max-width: 1200px) {
   .grid-offer-cards {
     grid-template-columns: 1fr 1fr;
@@ -92,3 +114,4 @@
     grid-template-columns: 1fr;
   }
 }
+

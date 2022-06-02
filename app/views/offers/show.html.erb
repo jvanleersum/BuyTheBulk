@@ -1,27 +1,34 @@
 <div class="container-show">
+
+<%# Card with offer details %>
   <div class="offer-details">
-    <h1><%= @offer.supplier_offer_url %></h1>
+    <div class="od-pic">
+      <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-offer-card"%>
+    </div>
     <div class="progress-bar"></div>
     <p class="price-currrent">Current Price</p>
     <h1><%= @offer.name %></h1>
     <p><%= @offer.description %></p>
   </div>
 
+<%# Order card with input for amount of products requiered %>
   <div class="amount-card">
-    <div class="amount">
-      <p>Order Amount</p>
-      <input type="number" placeholder="€ 00,00">
-    </div>
-    <div class="total">
-      <p>Total</p>
-      <p><i>€ 250,00</i></p>
-    </div>
-    <div class="savings">
-      <p>You're saving</p>
-      <p>€ 54,30</p>
-    </div>
-    <a href="" class="button btn-filled">Order</a>
+    <%= simple_form_for [ @offer, @order ] do |f| %>
+      <p><%= f.input :amount, label: "Order amount"  %></p>
+      <div class="total">
+        <p>Total</p>
+        <p><i>€ 250,00</i></p>
+      </div>
+      <div class="savings">
+        <p>You're saving</p>
+        <p>€ 54,30</p>
+      </div>
+        <%= f.submit %>
+          <%# <%= link_to f.submit "Order", order_order_confirmation_path(@order_id), method: :post, class: "button btn-filled" %> %>
+    <% end %>
+
   </div>
+
 
   <div class="bulkers-card">
 
