@@ -28,7 +28,10 @@
               <h4><%= offer.name %></h4>
               <p><%= truncate(offer.description, :length => 125) %></p>
             </div>
-            <p class="offer-deadline"><em>Offer expires <%= offer.days_until_deadline%></em></p>
+            <div class="offer-card-bottom">
+              <p class="offer-deadline"><em>Offer expires <%= offer.days_until_deadline%></em></p>
+              <div class="offer-category"><%= offer.category %></div>
+            </div>
           <% end %>
         </div>
       <% end %>
