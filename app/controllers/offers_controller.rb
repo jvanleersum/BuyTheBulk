@@ -18,7 +18,7 @@ class OffersController < ApplicationController
     else
       @offers = policy_scope(Offer).order(deadline: :desc)
     end
-    
+
   end
 
   def show
@@ -63,9 +63,17 @@ class OffersController < ApplicationController
   end
 
   def destroy
-    @offer = Offers.find(params[:id])
+    @offer = Offer.find(params[:id])
     authorize @offer
-    @offer.destroy
+
+    @offer.orders.each do |order|
+      authorize order
+      order.destroy
+    end
+
+    @offer.comments.each do |comment|
+      comment.destroy
+    end
 
     redirect_to offers_path
   end
