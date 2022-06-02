@@ -24,6 +24,7 @@
 }
 
 .offer-card {
+  text-decoration: none;
   border: 1px solid $topgray;
   border-radius: 0.5rem;
   box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
@@ -53,13 +54,20 @@
   display: flex;
   flex-direction: column;
   h4 {
-    height: 3rem;
     font-size: 1.5rem;
     padding: 0.5rem;
   }
   p {
     font-size: 1rem;
     padding: 0.5rem;
+  }
+}
+
+.card-links{
+  text-decoration: none;
+  color: black;
+  &:hover{
+    color: black;
   }
 }
 

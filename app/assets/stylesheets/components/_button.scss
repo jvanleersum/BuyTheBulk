@@ -15,11 +15,12 @@
   text-decoration: none;
   &:hover {
     background-color: $green3;
-    color: $gray;
+    color: black;
   }
 }
 // Secondary btn
 .btn-empty {
   background-color:white ;
   border: 0.5px solid $green2;
+  text-decoration: none;
 }

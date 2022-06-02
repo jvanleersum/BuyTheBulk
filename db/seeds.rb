@@ -5,12 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
-Offer.destroy_all
-Order.destroy_all
-Business.destroy_all
-Supplier.destroy_all
-Comment.destroy_all
+# User.destroy_all
+# Offer.destroy_all
+# Order.destroy_all
+# Business.destroy_all
+# Supplier.destroy_all
+# Comment.destroy_all
 
 
 lara = User.new({
@@ -57,9 +57,11 @@ supplier3 = Supplier.create(name: "Fusteria Joan & Maria")
 supplier4 = Supplier.create(name: "Gaia artisans")
 supplier5 = Supplier.create(name: "Flower's and smiles")
 
-print("Suppliers created\n")   
-    
-CATEGORIES = %w(furniture textiles decoration kitchenware\ &\ dinnerware take\ away pots\ &\ plants outdoor)
+print("Suppliers created\n")
+
+
+CATEGORIES = %w(Furniture Textiles Decoration Kitchenware\ &\ Dinnerware Take\ away Pots\ &\ plants Outdoor)
+
 
 offer_1 = Offer.new(
   name: "Organic take-away cups",
@@ -73,7 +75,8 @@ offer_1 = Offer.new(
   category: CATEGORIES[4],
 )
 offer_1.user = User.all.sample
-offer_1.supplier = Supplier.all.sample
+offer_1.supplier = supplier1
+offer_1.save!
 
 offer_2 = Offer.new(
   name: "Wooden bar stools",

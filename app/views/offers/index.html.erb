@@ -1,29 +1,43 @@
 <div class="container">
   <div class="search-offer-cards">
-      <%= form_with url: offers_path, method: :get, class:"form-row" do |f| %>
-        <%= f.text_field :query,
-          class: "mb-2 form-field-green form-field-left",
-          placeholder: 'Search a specific offer',
-          value: params[:query] %>
-        <%= f.submit "Search", class: "button btn-filled btn-right" %>
-      <% end %>
-    </div>
-</div>
-
-<div class="container grid-offer-cards">
-  <% @offers.each do |offer| %>
-    <% if policy(offer).show? %>
-      <div class="offer-card">
-        <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-offer-card"%>
-        <div class="progress-card-details">
-          <p><%= offer.ordered_amount %> / <%= offer.target_amount %></p>
-          <p>€<%= offer.target_price %></p>
-        </div>
-        <div class="offer-card-details">
-          <h4><%= offer.name %></h4>
-          <p><%= truncate(offer.description, :length => 125) %></p>
-        </div>
-      </div>
+    <%= form_with url: offers_path, method: :get, class:"form-row" do |f| %>
+      <%= f.text_field :query,
+        class: "mb-2 form-field-green form-field-left",
+        placeholder: 'Search a specific offer',
+        value: params[:query] %>
+      <%= f.submit "Search", class: "button btn-filled btn-right" %>
     <% end %>
-  <% end %>
+  </div>
+</div>
+<% if policy(@offers).destroy_all? %>
+<h2>DANGER ADMIN! THIS WILL DELETE ALL THE SEEDS!!</h2>
+<%= link_to "Delete all", destroy_all_path, method: :delete %>
+<% end %>
+
+
+<div class="container">
+  <div class="grid-offer-cards">
+    <% @offers.each do |offer| %>
+      <% if policy(offer).show? %>
+        <div class="offer-card">
+          <%= link_to offer_path(offer), class:"card-links" do %>
+            <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-offer-card"%>
+            <div class="progress-card-details">
+              <p><%= offer.ordered_amount %> / <%= offer.target_amount %></p>
+              <p>€<%= offer.target_price %></p>
+            </div>
+            <div class="offer-card-details">
+              <h4><%= offer.name %></h4>
+              <p><%= truncate(offer.description, :length => 125) %></p>
+            </div>
+          <% end %>
+
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="upload-offer-section">
+    <h6 class="header-upload">Not finding what you are looking for?</h6>
+    <%= link_to "Upload an offer", new_offer_path, class: 'button btn-empty' %>
+  </div>
 </div>

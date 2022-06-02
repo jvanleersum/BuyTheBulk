@@ -1,0 +1,18 @@
+.header {
+  padding-top: 1rem;
+}
+
+.order-description {
+  display: flex;
+  justify-content: space-between;
+  border: solid 2px $green2;
+  padding: 1rem;
+  border-radius: 0.7rem;
+  text-align: center;
+  // text-overflow: wrap;
+  margin:0.2rem;
+}
+
+// .amount {
+//   justify-content: space-between;
+// }

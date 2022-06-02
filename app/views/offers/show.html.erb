@@ -29,4 +29,8 @@
 
 
   </div>
+  <% if policy(@offer).edit? %>
+  <%= link_to "Edit this offer", edit_offer_path(@offer) %>
+  <%= link_to "Delete the offer", offer_path(@offer), method: :delete %>
+  <% end %>
 </div>
