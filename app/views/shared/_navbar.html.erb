@@ -1,10 +1,20 @@
 <div class="navbar">
-<%= link_to offers_path do %>
+<%= link_to :back do %>
   <%= image_tag "back-icon.png", class:"back-icon" %>
 <% end %>
 <%= link_to root_path do %>
   <%= image_tag "buythebulk-logo.png", class:"buythebulk-logo" %>
 <% end %>
-
-  <%= image_tag "burguer-icon.png", class:"burguer-icon" %>
+  <%= image_tag "burguer-icon.png", class:"burguer-icon avatar-dropdown-toggle", data: {bs_toggle:"dropdown"}%>
+   <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "View offers", offers_path, class: "dropdown-item" %>
+              <%# <%= link_to "Profile details", profile_page_path, class: "dropdown-item" %>
+              <% if user_signed_in? %>
+                <%= link_to "My orders", orders_path, class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <% else %>
+                <%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %>
+                 <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
+              <% end %>
+            </div>
 </div>
