@@ -1,6 +1,8 @@
 <div class="container-show">
   <div class="offer-details">
-    <h1><%= @offer.supplier_offer_url %></h1>
+    <div class="od-pic">
+      <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-offer-card"%>
+    </div>
     <div class="progress-bar"></div>
     <p class="price-currrent">Current Price</p>
     <h1><%= @offer.name %></h1>
