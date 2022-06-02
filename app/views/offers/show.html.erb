@@ -2,9 +2,13 @@
 
 <%# Card with offer details %>
   <div class="offer-details">
+    <% if @offer.photo.key %>
+      <%= cl_image_tag @offer.photo.key, class: "img-offer-card"%>
+    <% else %>
     <div class="od-pic">
       <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-offer-card"%>
     </div>
+    <% end %>
     <div class="progress-bar"></div>
     <p class="price-currrent">Current Price</p>
     <h1><%= @offer.name %></h1>

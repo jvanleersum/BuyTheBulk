@@ -62,6 +62,8 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     authorize @offer
     @offer.update(offer_params)
+
+    redirect_to offer_path(@offer)
   end
 
   def destroy
