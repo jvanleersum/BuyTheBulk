@@ -1,9 +1,9 @@
-.progress {
-  height: 30px;
-  border-radius: 15px;
-  width: 95vw;
-  margin: 0 auto;
-}
+// .progress {
+//   height: 30px;
+//   border-radius: 15px;
+//   width: 95vw;
+//   margin: 0 auto;
+// }
 
 .progress-bar__container {
   width: 100%;
@@ -16,12 +16,11 @@
   box-shadow: 0 0 5px $green1;
 }
 
-.progress-bar {
+.progress-bar-filled {
   position: absolute;
   height: 100%;
   width: 100%;
   content: "";
-  background-color: $green2;
   top:0;
   bottom: 0;
   left: -100%;
@@ -29,10 +28,6 @@
   display: flex;
   justify-content: center;
   align-items:center;
-  color: white;
+  color: $green1;
   font-family: sans-serif;
-}
-
-.progress-bar__text {
-  display: none;
 }

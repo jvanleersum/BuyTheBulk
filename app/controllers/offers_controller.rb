@@ -18,7 +18,6 @@ class OffersController < ApplicationController
     else
       @offers = policy_scope(Offer).order(deadline: :asc)
     end
-
   end
 
   def show
