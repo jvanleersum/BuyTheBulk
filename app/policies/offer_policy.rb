@@ -22,18 +22,34 @@ class OfferPolicy < ApplicationPolicy
   end
 
   def edit?
-    user.admin
+    if user.present?
+      return user.admin
+    else
+      return false
+    end
   end
 
   def update?
-    user.admin
+    if user.present?
+      return user.admin
+    else
+      return false
+    end
   end
 
   def destroy?
-    user.admin
+    if user.present?
+      return user.admin
+    else
+      return false
+    end
   end
 
   def destroy_all?
-    user.admin
+    if user.present?
+      return user.admin
+    else
+      return false
+    end
   end
 end
