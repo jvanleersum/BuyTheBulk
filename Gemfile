@@ -28,8 +28,8 @@ gem 'pundit'
 gem 'simple_form', github: 'heartcombo/simple_form'
 # gem 'client_side_validations'
 # gem 'client_side_validations-simple_form'
-gem 'sidekiq'
-gem 'sidekiq-failures', '~> 1.0'
+# gem 'sidekiq'
+# gem 'sidekiq-failures', '~> 1.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
