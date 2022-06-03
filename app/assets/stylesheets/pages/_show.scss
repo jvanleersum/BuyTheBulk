@@ -6,6 +6,10 @@
   justify-content: space-evenly;
 }
 
+.offer-progress-bar{
+  padding: 0.5rem 0 ; 
+}
+
 .offer-details {
   width: 85%;
   margin: 0 auto;
@@ -19,7 +23,7 @@
     width: 100%;
   }
   h1 {
-    text-align: right;
+    padding: 0.5rem;
   }
   .progress-bar {
     width: 100%;
