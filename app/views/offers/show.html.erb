@@ -1,7 +1,5 @@
 <div class="container-show">
 
-<div class="margin-only"></div>
-
 <%# Card with offer details %>
   <div class="offer-details">
     <% if @offer.photo.key %>
@@ -40,38 +38,54 @@
         </div>
     </div>
 
-<%# Order card with input for amount of products requiered %>
-<% if @offer.target_reached? %>
-  <div class="amount-card" data-controller="total-price-calc"  data-total-price-calc-unit-price-value="<%= @offer.initial_price %>" data-total-price-calc-target-price-value="<%= @offer.target_price %>">
-    <%= simple_form_for [ @offer, @order ], data: {action: "change input->total-price-calc#reachedPrice"} do |f| %>
-      <p><%= f.input :amount, label: "Order amount", input_html: { data: { total_price_calc_target:"amount" }} %></p>
-      <div class="total">
-        <p>Total</p>
-        <p data-total-price-calc-target="total"><i>0 €</i></p>
-      </div>
-      <div class="savings">
-        <p>You are saving</p>
-        <p data-total-price-calc-target="savings"><i></i></p>
-      </div>
-        <%= f.submit "Order", class: "button btn-filled" %>
-    <% end %>
-  </div>
-  <% else %>
-  <div class="amount-card" data-controller="total-price-calc"  data-total-price-calc-unit-price-value="<%= @offer.initial_price %>" data-total-price-calc-target-price-value="<%= @offer.target_price %>">
-    <%= simple_form_for [ @offer, @order ], data: {action: "change input->total-price-calc#updatePrice"} do |f| %>
-      <p><%= f.input :amount, label: "Order amount", input_html: { data: { total_price_calc_target:"amount" } } %></p>
-      <div class="total">
-        <p>Total</p>
-        <p data-total-price-calc-target="total"><i>0 €</i></p>
-      </div>
-      <div class="savings">
-        <p>You could be saving</p>
-        <p data-total-price-calc-target="savings"><i>0.00 €</i></p>
-      </div>
-        <%= f.submit "Order", class: "button btn-filled" %>
-    <% end %>
+    <div class="offer-card-bottom">
+      <% if @offer.active? %>
+        <p class="offer-deadline"><em>Offer expires <%= @offer.days_until_deadline%></em></p>
+      <% else %>
+        <p class="offer-deadline"><em>This offer expired on <br><%= @offer.deadline.strftime("%d-%m-%Y")%></em></p>
+      <% end %>
+      <div class="offer-category"><%= @offer.category %></div>
+    </div>
   </div>
 
+
+<%# Order card with input for amount of products requiered %>
+<% if @offer.active? %>
+  <% if @offer.target_reached? %>
+    <div class="amount-card" data-controller="total-price-calc"  data-total-price-calc-unit-price-value="<%= @offer.initial_price %>" data-total-price-calc-target-price-value="<%= @offer.target_price %>">
+      <%= simple_form_for [ @offer, @order ], data: {action: "change input->total-price-calc#reachedPrice"} do |f| %>
+        <p><%= f.input :amount, label: "Order amount", input_html: { data: { total_price_calc_target:"amount" }} %></p>
+        <div class="total">
+          <p>Total</p>
+          <p data-total-price-calc-target="total"><i>0 €</i></p>
+        </div>
+        <div class="savings">
+          <p>You are saving</p>
+          <p data-total-price-calc-target="savings"><i></i></p>
+        </div>
+          <%= f.submit "Order", class: "button btn-filled" %>
+      <% end %>
+    </div>
+    <% else %>
+    <div class="amount-card" data-controller="total-price-calc"  data-total-price-calc-unit-price-value="<%= @offer.initial_price %>" data-total-price-calc-target-price-value="<%= @offer.target_price %>">
+      <%= simple_form_for [ @offer, @order ], data: {action: "change input->total-price-calc#updatePrice"} do |f| %>
+        <p><%= f.input :amount, label: "Order amount", input_html: { data: { total_price_calc_target:"amount" } } %></p>
+        <div class="total">
+          <p>Total</p>
+          <p data-total-price-calc-target="total"><i>0 €</i></p>
+        </div>
+        <div class="savings">
+          <p>You could be saving</p>
+          <p data-total-price-calc-target="savings"><i>0.00 €</i></p>
+        </div>
+          <%= f.submit "Order", class: "button btn-filled" %>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <div class="amount-card">
+    <p class="order-inactive">You cannot place an order as this offer is no longer active</p>
+  </div>
 <% end %>
 
 

@@ -6,11 +6,6 @@
   justify-content: space-evenly;
 }
 
-
-.margin-only {
-  margin-top: 10px;
-}
-
 .offer-progress-bar{
   padding: 0.5rem 0 ;
 }
@@ -21,7 +16,7 @@
   width: 85%;
   margin: 0 auto;
   //padding: 20px;
-
+  margin-top: 20px;
   .photo {
     margin: 0 auto;
   }
@@ -57,6 +52,10 @@
   }
   p {
     font-size: 1.4rem;
+    margin: 0;
+  }
+  .order-inactive{
+    font-size: 1rem;
     margin: 0;
   }
   .savings p {
