@@ -10,7 +10,7 @@
       <% if @order.offer.photo.present? %>
         <%= cl_image_tag @order.offer.photo.key, class:"img-confirmation" %>
       <% else %>
-        <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-confirmation" %> 
+        <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-confirmation" %>
       <% end %>
       <div class="order-info">
         <p class="product-name"><%= @order.offer.name %></>
@@ -36,7 +36,7 @@
     </div>
   </div>
   <div class="confirmation-buttons">
-    <button class="button btn-filled confirmation-button">Keep Browsing</button>
-    <button class="button btn-empty confirmation-button">Dashboard</button>
+    <%= link_to "Keep Browsing", root_path, class: "button btn-filled confirmation-button"%>
+    <%= link_to "Dashboard", offers_path, class: "button btn-empty confirmation-button" %>
   </div>
 </div>
