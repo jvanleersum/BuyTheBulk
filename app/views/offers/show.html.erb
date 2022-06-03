@@ -29,7 +29,7 @@
   </div>
 
 <%# Order card with input for amount of products requiered %>
-  <div class="amount-card" data-controller="total-price-calc"  data-total-price-calc-unit-price-value="<%= @offer.initial_price %>">
+  <div class="amount-card" data-controller="total-price-calc"  data-total-price-calc-unit-price-value="<%= @offer.initial_price %>" data-total-price-calc-target-price-value="<%= @offer.target_price %>">
     <%= simple_form_for [ @offer, @order ], data: {action: "change input->total-price-calc#updatePrice"} do |f| %>
       <p><%= f.input :amount, label: "Order amount", input_html: { data: { total_price_calc_target:"amount" } } %></p>
       <div class="total">
@@ -37,8 +37,8 @@
         <p data-total-price-calc-target="total"><i></i></p>
       </div>
       <div class="savings">
-        <p>You're saving</p>
-        <p data-total-price-calc-target="savings">€ 54,30</p>
+        <p>You could be saving</p>
+        <p data-total-price-calc-target="savings"><i></i></p>
       </div>
         <%= f.submit "Order", class: "button btn-filled" %>
     <% end %>

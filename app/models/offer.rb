@@ -44,4 +44,8 @@ class Offer < ApplicationRecord
   def progress_percentage
     (ordered_amount / target_amount.to_f)*100
   end
+
+  def target_reached?
+    ordered_amount >= target_amount
+  end
 end
