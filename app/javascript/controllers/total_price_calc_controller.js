@@ -15,7 +15,15 @@ export default class extends Controller {
     const savings = (total - (this.targetPriceValue * this.amountTarget.value)).toFixed(2)
 
     this.savingsTarget.innerText = `${savings} €`
+
     // total = (order.amount * offer.initial_price)
+  }
+  reachedPrice(e){
+    const total = (this.targetPriceValue * this.amountTarget.value).toFixed(2)
+    this.totalTarget.innerText = `${total} €`
+    const savings = ((this.unitPriceValue -this.targetPriceValue) * this.amountTarget.value).toFixed(2)
+
+    this.savingsTarget.innerText = `${savings} €`
   }
 
 
