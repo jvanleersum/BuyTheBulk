@@ -71,7 +71,7 @@ judith = User.new({
   last_name: "van Leersum",
   email: "judith@bulkers.com",
   password: "judith@bulkers.com",
-  admin: true
+  admin: false
 })
 judith.business = business4
 judith.save
