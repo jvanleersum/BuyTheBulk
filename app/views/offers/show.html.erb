@@ -32,20 +32,15 @@
         <p><%= @offer.description %></p>
       </div>
       <div class="offer-card-bottom">
-        <p class="offer-deadline"><em>Offer expires <%= @offer.days_until_deadline%></em></p>
+        <% if @offer.active? %>
+          <p class="offer-deadline"><em>Offer expires <%= @offer.days_until_deadline%></em></p>
+        <% else %>
+          <p class="offer-deadline"><em>This offer expired on <br><%= @offer.deadline.strftime("%d-%m-%Y")%></em></p>
+        <% end %>
         <div class="offer-category"><%= @offer.category %></div>
       </div>
-        </div>
     </div>
 
-    <div class="offer-card-bottom">
-      <% if @offer.active? %>
-        <p class="offer-deadline"><em>Offer expires <%= @offer.days_until_deadline%></em></p>
-      <% else %>
-        <p class="offer-deadline"><em>This offer expired on <br><%= @offer.deadline.strftime("%d-%m-%Y")%></em></p>
-      <% end %>
-      <div class="offer-category"><%= @offer.category %></div>
-    </div>
   </div>
 
 
