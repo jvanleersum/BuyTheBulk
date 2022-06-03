@@ -3,7 +3,7 @@ import OccurrenceOrderChunkIdsPlugin from "webpack/lib/optimize/OccurrenceChunkO
 
 export default class extends Controller {
   static targets = [ "total", "savings", "amount"]
-  static values = { unitPrice: Number }
+  static values = { unitPrice: Number, targetPrice: Number}
 
   connect() {
     console.log('Hello, Stimulus!')
@@ -12,6 +12,11 @@ export default class extends Controller {
   updatePrice(e) {
     const total = (this.unitPriceValue * this.amountTarget.value).toFixed(2)
     this.totalTarget.innerText = `${total} €`
+    const savings = (total - (this.targetPriceValue * this.amountTarget.value)).toFixed(2)
+
+    this.savingsTarget.innerText = `${savings} €`
     // total = (order.amount * offer.initial_price)
   }
+
+
 }
