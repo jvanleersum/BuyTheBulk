@@ -6,23 +6,25 @@
 
     <div class="orders-card flex">
       <% @orders.each do |order| %>
-      <div class="order-description flex">
-        <div class="order-img">
-          <% if order.offer.photo.key %>
-              <%= cl_image_tag order.offer.photo.key, class: "order-img" %>
-            <% else %>
-            <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"order-img"%>
-            <% end %>
-        </div>
-        <div class="order-info">
-          <h4><%= order.offer.name %></h4>
-          <br>
-          <p><%= order.offer.description %></p>
-        </div>
-        <div class="order-status">
-          <%= order.offer.status %>
-        </div>
-      </div>
+        <%= link_to order_path(order), class: "card-links" do %>
+          <div class="order-description flex">
+            <div class="order-img">
+              <% if order.offer.photo.key %>
+                <%= cl_image_tag order.offer.photo.key, class: "order-img" %>
+                <% else %>
+                <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"order-img"%>
+              <% end %>
+            </div>
+            <div class="order-info">
+              <h4><%= order.offer.name %></h4>
+              <br>
+              <p><%= order.offer.description %></p>
+            </div>
+            <div class="order-status">
+              <%= order.offer.status %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
