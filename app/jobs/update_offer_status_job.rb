@@ -8,8 +8,10 @@ class UpdateOfferStatusJob < ApplicationJob
     offers.each do |offer| 
       if offer.deadline < Date.today && offer.target_reached?
         offer.status = 'accomplished'
+        offer.save
       elsif offer.deadline < Date.today
         offer.status = 'expired'
+        offer.save
       end
     end
   end
