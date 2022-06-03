@@ -1,5 +1,7 @@
 <div class="container-show">
 
+<div class="margin-only"></div>
+
 <%# Card with offer details %>
   <div class="offer-details">
     <% if @offer.photo.key %>
@@ -9,10 +11,21 @@
       <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-offer-card"%>
     </div>
     <% end %>
-    <div class="progress-bar"></div>
-    <p class="price-currrent">Current Price</p>
-    <h1><%= @offer.name %></h1>
-    <p><%= @offer.description %></p>
+    <div class="offer-card-progress-bar">
+      <%= render "shared/progress_bar", offer: @offer %>
+    </div>
+    <div class="progress-card-details">
+      <p><%= @offer.ordered_amount %> / <%= @offer.target_amount %></p>
+      <p>€<%= @offer.target_price %></p>
+    </div>
+    <div class="offer-card-details">
+      <h1><%= @offer.name %></h1>
+      <p><%= @offer.description %></p>
+    </div>
+    <div class="offer-card-bottom">
+      <p class="offer-deadline"><em>Offer expires <%= @offer.days_until_deadline%></em></p>
+      <div class="offer-category"><%= @offer.category %></div>
+    </div>
   </div>
 
 <%# Order card with input for amount of products requiered %>
@@ -36,11 +49,11 @@
 
     <div class="bulker-info">
       <p class="bulker-name">Susanito Perex</p>
-      <div class="img-div"><%= image_tag "shapes_", class: "img-avatar" %> </div>
+      <%# <div class="img-div"><%= image_tag "shapes_", class: "img-avatar" %>
     </div>
 
     <div class="bulkers-in">
-      <div class="img-div"><%= image_tag "shapes_" %> </div>
+      <%# <div class="img-div"><%= image_tag "shapes_" %>
       <p>45 other bulkers joined</p>
     </div>
 
