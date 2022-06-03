@@ -16,7 +16,17 @@
     </div>
     <div class="progress-card-details">
       <p><%= @offer.ordered_amount %> / <%= @offer.target_amount %></p>
-      <p>€<%= @offer.target_price %></p>
+      <% if @offer.target_reached? %>
+        <div class="prices">
+          <p>€<%= @offer.target_price %></p>
+          <p class="lighter-price not-valid-price">€<%= @offer.initial_price %></p>
+        </div>
+      <% else %>
+        <div class="prices">
+          <p>€<%= offer.initial_price %></p>
+          <p class="lighter-price">Target price: €<%= offer.target_price %></p>
+        </div>
+      <% end %>
     </div>
     <div class="offer-card-details">
       <h1><%= @offer.name %></h1>
