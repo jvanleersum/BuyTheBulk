@@ -3,33 +3,41 @@
 <%# Card with offer details %>
   <div class="offer-details">
     <% if @offer.photo.key %>
-      <%= cl_image_tag @offer.photo.key, class: "img-offer-card"%>
+      <%= cl_image_tag @offer.photo.key, class: "img-offer-card img-offer-show"%>
     <% else %>
     <div class="od-pic">
-      <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-offer-card"%>
+      <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-offer-card img-offer-show"%>
     </div>
     <% end %>
-    <div class="offer-card-progress-bar">
-      <%= render "shared/progress_bar", offer: @offer %>
-    </div>
-    <div class="progress-card-details">
-      <p><%= @offer.ordered_amount %> / <%= @offer.target_amount %></p>
-      <% if @offer.target_reached? %>
-        <div class="prices">
-          <p>€<%= @offer.target_price %></p>
-          <p class="lighter-price not-valid-price">€<%= @offer.initial_price %></p>
+    <div class="offer-content">
+      <div class="offer-card-progress-bar">
+        <%= render "shared/progress_bar", offer: @offer %>
+      </div>
+      <div class="progress-card-details">
+        <p><%= @offer.ordered_amount %> / <%= @offer.target_amount %></p>
+        <% if @offer.target_reached? %>
+          <div class="prices">
+            <p>€<%= @offer.target_price %></p>
+            <p class="lighter-price not-valid-price">€<%= @offer.initial_price %></p>
+          </div>
+        <% else %>
+          <div class="prices">
+            <p>€<%= @offer.initial_price %></p>
+            <p class="lighter-price">Target price: €<%= @offer.target_price %></p>
+          </div>
+        <% end %>
+      </div>
+      <div class="offer-card-details">
+        <h1><%= @offer.name %></h1>
+        <p><%= @offer.description %></p>
+      </div>
+      <div class="offer-card-bottom">
+        <p class="offer-deadline"><em>Offer expires <%= @offer.days_until_deadline%></em></p>
+        <div class="offer-category"><%= @offer.category %></div>
+      </div>
         </div>
-      <% else %>
-        <div class="prices">
-          <p>€<%= @offer.initial_price %></p>
-          <p class="lighter-price">Target price: €<%= @offer.target_price %></p>
-        </div>
-      <% end %>
     </div>
-    <div class="offer-card-details">
-      <h1><%= @offer.name %></h1>
-      <p><%= @offer.description %></p>
-    </div>
+
     <div class="offer-card-bottom">
       <% if @offer.active? %>
         <p class="offer-deadline"><em>Offer expires <%= @offer.days_until_deadline%></em></p>
@@ -39,6 +47,7 @@
       <div class="offer-category"><%= @offer.category %></div>
     </div>
   </div>
+
 
 <%# Order card with input for amount of products requiered %>
 <% if @offer.active? %>

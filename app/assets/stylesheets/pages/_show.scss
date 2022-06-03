@@ -14,9 +14,9 @@
   border: 0.5px solid $green1;
   border-radius: 10px;
   width: 85%;
-  margin: auto;
+  margin: 0 auto;
+  //padding: 20px;
   margin-top: 20px;
-  padding: 20px;
   .photo {
     margin: 0 auto;
   }
@@ -32,6 +32,9 @@
     background: linear-gradient(0.25turn, $green4, $green1);
     height: 25px;
     border-radius: 10px;
+  }
+  .offer-content {
+    padding: 20px;
   }
 }
 

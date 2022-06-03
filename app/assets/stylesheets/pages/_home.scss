@@ -62,3 +62,13 @@
   padding-right: 0;
   padding-left: 0;
 }
+
+.sign-in {
+  color: $gray;
+  text-decoration: none;
+  border-bottom: 3px solid $green2;
+  &:hover{
+    font-weight: bolder;
+    border-bottom: 4px solid $green1;
+  }
+}
