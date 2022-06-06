@@ -19,7 +19,11 @@
             <p>Amount</p><p><%= @order.amount %></p>
           </div>
           <div class="order-total">
-            <p><strong>Total</strong></p><p><strong>€<%= @order.amount * @order.offer.initial_price %></strong></p>
+            <% if @order.offer.target_reached? %>
+              <p><strong>Total</strong></p><p><strong>€<%= (@order.amount * @order.offer.target_price).round(2) %></strong></p>
+            <% else %>
+              <p><strong>Total</strong></p><p><strong>€<%= (@order.amount * @order.offer.initial_price).round(2) %></strong></p>
+            <% end %>
           </div>
         </div>
       </div>
@@ -28,11 +32,13 @@
       <div class="offer-card-progress-bar">
         <%= render "shared/progress_bar", offer: @order.offer %>
       </div>
-      <div class="progress-card-details">
-        <p><%= @order.offer.ordered_amount %> / <%= @order.offer.target_amount %></p>
-        <p>€<%= @order.offer.target_price %></p>
-      </div>
-      <p>Only <strong><%= @order.offer.target_amount - @order.offer.ordered_amount %></strong> items left until the target is reached</p>
+    </div>
+  </div>  
+  <div>
+    <p class="share-text">Almost there! Share the offer to reach the target!</p>
+    <div class='share-link' data-controller="clipboard copy-url">
+      <input class='form-field-green' type="text" value=<%=offer_url(@order.offer)%>  data-clipboard-target="source"/>
+      <button type="button" class="button btn-filled btn-clipboard" data-action="clipboard#copy click->copy-url#clicked" data-copy-url-target="button"><i class="fas fa-clipboard clipboard-icon"></i></button>
     </div>
   </div>
   <div class="confirmation-buttons">
