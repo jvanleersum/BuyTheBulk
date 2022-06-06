@@ -11,8 +11,8 @@
                   autofocus: true,
                   hint: 'Select a unique nickname :)'%>
               <%= f.input :address, hint: 'Where is your business located?'%>
-              <%= f.input :description, hint: 'How many will you buy?'%>
-              <%= f.input :photo, as: :file %>
+              <%= f.input :description, hint: 'Explain a little bit about your business'%>
+              <%= f.input :photo, as: :file, hint: 'This will be your avatar' %>
             <%= f.submit :submit, class: 'button btn-filled' %>
           <% end %>
       </div>

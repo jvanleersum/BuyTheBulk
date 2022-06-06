@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :verify_business, except: [:new, :edit, :create ]
   def index
     UpdateOfferStatusJob.perform_now
     if params[:query].present?
