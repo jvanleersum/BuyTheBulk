@@ -1,36 +1,38 @@
-<div class="container">
+<div class="container-form">
+
     <div class="row justify-content-center" style="margin-top: 2rem">
-      <div class="col-1">
+      <div class="d-flex justify-content-center">
         <% if @business.photo.key %>
           <%= cl_image_tag @business.photo.key, class: "avatar-xxl" %>
         <% else %>
           <%= image_tag "avatar.jpg", class:"avatar-xxl"%>
         <% end %>
-        <h1 style="font-weight: bold">@<%= @business.nickname %></h1>
+      </div>
+        <h3 class="d-flex justify-content-center" style="font-weight: bold">@<%= @business.nickname %></h3>
+    </div>
+
+    <div class="row justify-content-center" style="margin-top: 2rem">
+      <div class="col-lg-6 col-sm-9 breath">
+          <%= simple_form_for @business do |f| %>
+            <%= f.input :name,
+                  required: true,
+                  autofocus: true,
+                  hint: 'What is your business name?',
+                  label: 'Business name' %>
+              <%= f.input :nickname,
+                  required: true,
+                  autofocus: true,
+                  hint: 'Select a unique nickname :)',
+                  label: 'What will be your business nickname?'%>
+              <%= f.input :address, hint: 'Where is your business located?',
+                  label: 'Where is your business located? '%>
+              <%= f.input :description, hint: 'Explain a little bit about your business',
+                  label: 'Tell other bulkers a bit about your business'%>
+              <%= f.input :photo, as: :file, hint: 'This will be your avatar',
+                  label: 'Avatar' %>
+            <%= f.submit :submit, class: 'button btn-filled' %>
+          <% end %>
       </div>
     </div>
-      <div class="row justify-content-center" style="margin-top: 2rem">
-        <div class="col-lg-6 col-sm-9">
-            <%= simple_form_for @business do |f| %>
-              <%= f.input :name,
-                    required: true,
-                    autofocus: true,
-                    hint: 'What is your business name?',
-                    label: 'Business name' %>
-                <%= f.input :nickname,
-                    required: true,
-                    autofocus: true,
-                    hint: 'Select a unique nickname :)',
-                    label: 'What will be your business nickname?'%>
-                <%= f.input :address, hint: 'Where is your business located?',
-                    label: 'Where is your business located? '%>
-                <%= f.input :description, hint: 'Explain a little bit about your business',
-                    label: 'Tell other bulkers a bit about your business'%>
-                <%= f.input :photo, as: :file, hint: 'This will be your avatar',
-                    label: 'Avatar' %>
-              <%= f.submit :submit, class: 'button btn-filled' %>
-            <% end %>
-        </div>
-      </div>
-    </div>
+
   </div>

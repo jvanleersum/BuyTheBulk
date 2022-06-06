@@ -9,7 +9,7 @@
   .back-icon, .burguer-icon {
     width: 40px;
     position: flex-end;
-    padding: 5px;
+    margin: 0.5rem;
   }
   .buythebulk-logo {
     width: 190px;
@@ -17,14 +17,22 @@
     margin-top: 10px;
   }
   .dropdown-menu{
+    margin-top: 0px;
     background-color: $green2;
+    padding: 0px;
     width: 100%;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0px 0 10px 0px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   }
   .dropdown-item {
     font-family: 'DM Sans';
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: center;
+    height: 3rem;
+    align-items: center;
+    &:hover {
+      background-color: $green3;
+      transition: all 0.3s;
+    }
   }
 }
