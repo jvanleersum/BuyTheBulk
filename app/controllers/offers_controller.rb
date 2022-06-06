@@ -24,6 +24,7 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    @comment = Comment.new
     authorize @offer
     @order = Order.new
     authorize @offer
