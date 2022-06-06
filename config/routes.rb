@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # get "/orders/:id/confirmation", to: "orders#confirmation", as: :order_confirmation
   delete "/offers", to: 'offers#destroy_all', as: :destroy_all
   resources :offers do
+    resources :comments, only: [ :create ]
     resources :orders, only: [ :create ]
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end
