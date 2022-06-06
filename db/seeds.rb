@@ -88,7 +88,7 @@ supplier1 = Supplier.create(name: "Ikea")
 supplier2 = Supplier.create(name: "Amaia Polanco")
 supplier3 = Supplier.create(name: "Fusteria Joan & Maria")
 supplier4 = Supplier.create(name: "Gaia artisans")
-supplier5 = Supplier.create(name: "Flower's and smiles")
+ Supplier.create(name: "Flower's and smiles")
 
 print("Suppliers created\n")
 
