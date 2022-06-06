@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :business
+  has_one :business
   has_many :comments
   has_many :orders
   has_many :offers

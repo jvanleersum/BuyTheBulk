@@ -12,30 +12,6 @@ Supplier.destroy_all
 User.destroy_all
 Business.destroy_all
 
-business1 = Business.new(nickname: "cuernitos",
-  description: "We have been working in the café industry just for a while but we are amazed at how happy we are",
-  address: "C/Tallers 61, Barcelona",
-  name: "Don Cuernitos",
-)
-business1.save
-business2 = Business.new(nickname: "mymomsbakery",
-  description: "There is nothing we like to do more than kneading bread! It helps out dealing with stress, and you can eat it too!",
-  address: "C/Gran de Gracia 234",
-  name: "My Mom's Bakery",
-)
-business2.save
-business3 = Business.new(nickname: "vrutal",
-  description: "Vrutal, started 5 years ago to show the world how meatless hamburguers are the best option to have! We take really good care of our products",
-  address: "Rambla Poblenou 37",
-  name: "Vrutal",
-)
-business3.save
-business4 = Business.new(nickname: "NeoCafe",
-  description: "We are a couple of frenchies willing to make a change in the world, we have been working for 2 years in the city and we want to help others reach their goals",
-  address: "C/Uruguay 234",
-  name: "Neo Cafeteria",
-)
-business4.save
 lara = User.new({
   first_name: 'Lara',
   last_name: "Keen",
@@ -43,7 +19,7 @@ lara = User.new({
   password: "lara@bulkers.com",
   admin: true
 })
-lara.business = business1
+
 lara.save
 
 laura = User.new({
@@ -53,7 +29,6 @@ laura = User.new({
   password: "laura@bulkers.com",
   admin: true
 })
-laura.business = business2
 laura.save
 
 david = User.new({
@@ -63,7 +38,6 @@ david = User.new({
   password: "david@bulkers.com",
   admin: true
 })
-david.business = business3
 david.save
 
 judith = User.new({
@@ -73,8 +47,40 @@ judith = User.new({
   password: "judith@bulkers.com",
   admin: false
 })
-judith.business = business4
 judith.save
+
+
+business1 = Business.new(nickname: "cuernitos",
+  description: "We have been working in the café industry just for a while but we are amazed at how happy we are",
+  address: "C/Tallers 61, Barcelona",
+  name: "Don Cuernitos",
+)
+
+business1.user = lara
+business1.save
+
+business2 = Business.new(nickname: "mymomsbakery",
+  description: "There is nothing we like to do more than kneading bread! It helps out dealing with stress, and you can eat it too!",
+  address: "C/Gran de Gracia 234",
+  name: "My Mom's Bakery",
+)
+
+business2.user = laura
+business2.save
+business3 = Business.new(nickname: "vrutal",
+  description: "Vrutal, started 5 years ago to show the world how meatless hamburguers are the best option to have! We take really good care of our products",
+  address: "Rambla Poblenou 37",
+  name: "Vrutal",
+)
+business3.user = david
+business3.save
+business4 = Business.new(nickname: "NeoCafe",
+  description: "We are a couple of frenchies willing to make a change in the world, we have been working for 2 years in the city and we want to help others reach their goals",
+  address: "C/Uruguay 234",
+  name: "Neo Cafeteria",
+)
+business4.user = judith
+business4.save
 
 print("Users created\n")
 
@@ -97,7 +103,7 @@ offer_1 = Offer.new(
   target_amount: 1000,
   supplier_offer_url: "www.lewagon.com",
   status: "active",
-  deadline: "08-06-2022",
+  deadline: "12-06-2022",
   description: "Beautiful take-away cups that are created in an organic way and only uses recycled news papers that were collected from schools.",
   category: CATEGORIES[4],
 )
@@ -127,7 +133,7 @@ offer_3 = Offer.new(
   target_amount: 300,
   supplier_offer_url: "www.lewagon.com",
   status: "active",
-  deadline: "10-06-2022",
+  deadline: "15-06-2022",
   description: "Table cloths for square tables of 80x80cm. They can also be used for outside tables.",
   category: CATEGORIES[1],
 )
@@ -142,7 +148,7 @@ offer_4 = Offer.new(
   target_amount: 2000,
   supplier_offer_url: "www.lewagon.com",
   status: "active",
-  deadline: "03-06-2022",
+  deadline: "11-06-2022",
   description: "Candle holders with monkeys on the side, gold plated but very long lasting",
   category: CATEGORIES[2],
 )
