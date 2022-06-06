@@ -142,7 +142,7 @@ offer_4 = Offer.new(
   target_amount: 2000,
   supplier_offer_url: "www.lewagon.com",
   status: "active",
-  deadline: "03-06-2022",
+  deadline: "06-06-2022",
   description: "Candle holders with monkeys on the side, gold plated but very long lasting",
   category: CATEGORIES[2],
 )
