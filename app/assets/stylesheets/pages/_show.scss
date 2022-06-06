@@ -15,7 +15,6 @@
   border-radius: 10px;
   width: 85%;
   margin: 0 auto;
-  //padding: 20px;
   margin-top: 20px;
   .photo {
     margin: 0 auto;
@@ -91,7 +90,7 @@
 
 .bulkers-card {
   width: 85%;
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
   border: solid 1px $green2;
   border-radius: 8px;
   background-color: $green3;
@@ -114,7 +113,7 @@
       height: 5rem;
       width: 5rem;
       border-radius: 50%;
-
+      padding: 5px;
     }
     .info-bu {
       padding: 10px 0;

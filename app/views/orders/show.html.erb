@@ -1,1 +1,66 @@
-<h2>show</h2>
+<div class="container-show">
+
+<%# Card with order details %>
+  <div class="offer-details">
+    <% if @order.offer.photo.key %>
+      <%= cl_image_tag @order.offer.photo.key, class: "img-offer-card img-offer-show"%>
+    <% else %>
+      <div class="od-pic">
+        <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-offer-card img-offer-show"%>
+      </div>
+    <% end %>
+
+    <div class="offer-content">
+      <div class="offer-card-progress-bar">
+        <%= render "shared/progress_bar", offer: @order.offer %>
+      </div>
+      <div class="progress-card-details">
+        <p><%= @order.offer.ordered_amount %> / <%= @order.offer.target_amount %></p>
+        <% if @order.offer.target_reached? %>
+          <div class="prices">
+            <p>€<%= @order.offer.target_price %></p>
+            <p class="lighter-price not-valid-price">€<%= @order.offer.initial_price %></p>
+          </div>
+        <% else %>
+          <div class="prices">
+            <p>€<%= @order.offer.initial_price %></p>
+            <p class="lighter-price">Target price: €<%= @order.offer.target_price %></p>
+          </div>
+        <% end %>
+      </div>
+      <div class="offer-card-details">
+        <h1><%= @order.offer.name %></h1>
+        <p><%= @order.offer.description %></p>
+      </div>
+      <div class="offer-card-bottom">
+        <% if @order.offer.active? %>
+          <p class="offer-deadline"><em>Offer expires <%= @order.offer.days_until_deadline%></em></p>
+        <% else %>
+          <p class="offer-deadline"><em>This offer expired on <br><%= @order.offer.deadline.strftime("%d-%m-%Y")%></em></p>
+        <% end %>
+        <div class="offer-category"><%= @order.offer.category %></div>
+      </div>
+
+  </div>
+
+</div>
+
+<div class="bulkers-card">
+  <div class="bulker-info">
+    <div class="info-bu">
+      <h5><%= @order.offer.user.first_name %> <%= @order.offer.user.last_name %></h5>
+      <p>Is placing this order</p>
+    </div>
+      <% if  @order.offer.user.photo.attached? %>
+        <%= cl_image_tag @order.offer.user.photo.key, class: "user-image" %>
+      <% else %>
+        <%= image_tag "one-blank", class: "user-image" %>
+      <% end %>
+  </div>
+
+  <div class="bulkers-in">
+    <%= image_tag "three-bulkers", class: "three-users" %>
+    <p>45 other bulkers jointed</p>
+  </div>
+
+</div>
