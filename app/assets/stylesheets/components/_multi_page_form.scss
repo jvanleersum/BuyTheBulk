@@ -1,0 +1,63 @@
+.form-title{
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-carroussel{
+  display: flex;
+  align-items: center;
+  .form-arrow-green{
+    color: $green2;
+    font-size: 2rem;
+  }
+  .hidden {
+    color: white;
+  }
+}
+
+.offer-form-view{
+  height: 80vh;
+  // position: relative;
+}
+
+.offer-form {
+  display: flex;
+  width: 100%;
+  height: 55vh;
+  .hidden {
+    display: none;
+  }
+}
+
+.offer-form-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 0.5px solid $green1;
+  border-radius: 0.5rem;
+  width: 95%;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  .dot {
+    color: $green2;
+    margin: 0.5rem;
+  }
+  .active {
+    color: $green1;
+  }
+}
+
+.btn-offer-form{
+  width: 85%;
+  &:disabled{
+    background-color: $topgray;
+    color: $textgray;
+  }
+}
