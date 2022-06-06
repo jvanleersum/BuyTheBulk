@@ -12,6 +12,11 @@
               <% if user_signed_in? %>
                 <%= link_to "My orders", orders_path, class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                <% if current_user.business.present?  %>
+                <%= link_to "Edit my business", edit_business_path(current_user.business), class: "dropdown-item" %>
+                <% else %>
+                <%= link_to "Add my business", new_business_path, class: "dropdown-item" %>
+                <% end %>
               <% else %>
                 <%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %>
                 <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
