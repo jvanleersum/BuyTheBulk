@@ -111,3 +111,15 @@
     border: 2px solid red;
   }
 }
+//comment box plus post button
+.comment-box {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 6px;
+  border: 2px solid $green2;
+  margin: 0 auto;
+  width: 85%;
+  padding: 20px;
+  font-family: 'DM Sans';
+  display: flex;
+  justify-content: space-between;
+}
