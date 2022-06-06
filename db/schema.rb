@@ -108,7 +108,9 @@ ActiveRecord::Schema.define(version: 2022_06_06_094209) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
+    t.bigint "business_id"
     t.boolean "admin", default: false
+    t.index ["business_id"], name: "index_users_on_business_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -122,4 +124,5 @@ ActiveRecord::Schema.define(version: 2022_06_06_094209) do
   add_foreign_key "offers", "users"
   add_foreign_key "orders", "offers"
   add_foreign_key "orders", "users"
+  add_foreign_key "users", "businesses"
 end
