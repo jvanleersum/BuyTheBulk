@@ -1,1 +1,26 @@
-<%= render 'form_offer' %>
+<%#= render 'form_offer' %>
+
+<% category = %w(furniture textiles decoration kitchenware\ &\ dinnerware take\ away pots\ &\ plants outdoor) %>
+<% category.each { |name| name.capitalize!}%>
+  <div class="container">
+    <div class="row justify-content-center" style="margin-top: 2rem">
+      <div class="col-lg-6 col-sm-9">
+          <%= simple_form_for @offer do |f| %>
+            <%= f.input :name, hint: 'Remember, being creative can help you out' %>
+            <%= f.input :description, hint: 'Provide a detailed description. Example: Size, material, quality...' %>
+            <%= f.input :initial_price, html: {class: 'inline-form'}, hint: 'What is the current price/unit' %>
+            <%= f.input :target_price, html: {class: 'inline-form'}, hint: 'What is the desired price/unit' %>
+            <%= f.input :target_amount, hint: 'What is amount of products to reach the desired price?' %>
+               <%= simple_fields_for :order do |f| %>
+               <%= f.input :amount, hint: 'How many will you buy?'%>
+               <% end %>
+            <%= f.input :supplier_id, as: :select, include_blank: false, collection: Supplier.all, label_method: :name  %>
+            <%= f.input :supplier_offer_url, hint: 'What is the link to the supplier?' %>
+            <%= f.input :category, as: :select, include_blank: false, collection: category %>
+            <%= f.input :deadline, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.input :photo, as: :file %>
+            <%= f.submit :submit, class: 'button btn-filled' %>
+          <% end %>
+      </div>
+    </div>
+  </div>
