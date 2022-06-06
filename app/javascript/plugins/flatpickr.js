@@ -1,10 +1,13 @@
 import flatpickr from "flatpickr";
 
 const initFlatpickr = () => {
-  flatpickr(".datepicker", {
-    disableMobile: true,
-    minDate: "today"
-  });
+  const flatpicker = document.getElementById('offer_deadline');
+  if (flatpicker) {
+    flatpickr(".datepicker", {
+      disableMobile: true,
+      minDate: "today"
+    });
+  }
 }
 
 export { initFlatpickr };
