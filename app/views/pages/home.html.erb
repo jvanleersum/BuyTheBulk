@@ -8,8 +8,7 @@
         <h1>Welcome back!</h1>
         <h3><em><%= current_user.first_name %></em></h3>
       <% else %>
-        <h1>Welcome</h1>
-        <h3><em>guest!</em></h3>
+          <%= link_to "Become a Bulker!", new_user_session_path, class: 'sign-in' %>
       <% end %>
     </div>
 
@@ -30,7 +29,7 @@
           <div class="card-category" data-action="click->select-categories#selectCategory" data-select-categories-target="category"><%= categorie %></div>
         <% end %>
       </div>
-      
+
       <div class="search-offer search-offer-categories">
         <%= form_with url: offers_path, method: :get do |f| %>
           <%= f.hidden_field :category, data: { select_categories_target: "hiddenField" }, value: "" %>
@@ -39,7 +38,7 @@
       </div>
     </div>
     <div class="upload-offer-section">
-      <h4>Not finding what you are looking for?</h6>
+      <h4> Not finding what you are looking for?</h6>
       <%= link_to "Upload an offer", new_offer_path, class: 'button btn-empty btn-upload-offer' %>
     </div>
   </div>

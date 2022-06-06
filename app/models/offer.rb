@@ -18,7 +18,7 @@ class Offer < ApplicationRecord
   validates :category, presence: true, inclusion: { in: %w(Furniture Textiles Decoration Kitchenware\ &\ Dinnerware Take\ away Pots\ &\ plants Outdoor) }
   validates :deadline, presence: true
   validate :deadline_cannot_be_in_the_past
-  validates :status, inclusion: { in: %w(active inactive)}
+  validates :status, inclusion: { in: %w(active accomplished expired)}
 
   def deadline_cannot_be_in_the_past
     if deadline.present? && deadline < Date.today
@@ -47,5 +47,9 @@ class Offer < ApplicationRecord
 
   def target_reached?
     ordered_amount >= target_amount
+  end
+
+  def active?
+    status == "active"
   end
 end
