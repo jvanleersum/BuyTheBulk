@@ -29,6 +29,12 @@ class OffersController < ApplicationController
     @order = Order.new
     authorize @offer
     @order.offer = @offer
+    @participants = []
+    @offer.orders.each do |order|
+      @participants << order.user
+    end
+    @participants.uniq!
+
   end
 
   def new
@@ -49,7 +55,7 @@ class OffersController < ApplicationController
     @order.offer = @offer
     @order.user = current_user
 
-    if @offer.save
+    if @offer.save && @order.save
       redirect_to offer_path(@offer), notice: 'Your offer was successfully created! '
     else
       render :new

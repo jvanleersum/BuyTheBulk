@@ -102,20 +102,26 @@
 
     <div class="bulker-info">
       <div class="info-bu">
-        <h5><%= @offer.user.first_name %> <%= @offer.user.last_name %></h5>
+        <h5>@<%= @offer.user.business.nickname %></h5>
         <p>Is placing this order</p>
       </div>
-        <% if  @offer.user.photo.attached? %>
-          <%= cl_image_tag @offer.user.photo.key, class: "user-image" %>
+        <% if  @offer.user.business.photo.attached? %>
+          <%= cl_image_tag @offer.user.business.photo.key, class: "user-image" %>
         <% else %>
           <%= image_tag "one-blank", class: "user-image" %>
         <% end %>
     </div>
+    <% if @partipants.nil? %>
+        <div class="bulkers-in">
+          <p>Be the first bulker to join @<%=@offer.user.business.nickname %>!</p>
+        </div>
+      <% else  %>
+        <div class="bulkers-in">
+          <%= image_tag "three-bulkers", class: "three-users" %>
+          <p><%= @participants.count  %> other bulkers joined</p>
+        </div>
+    <% end %>
 
-    <div class="bulkers-in">
-      <%= image_tag "three-bulkers", class: "three-users" %>
-      <p>45 other bulkers jointed</p>
-    </div>
 
   </div>
 
