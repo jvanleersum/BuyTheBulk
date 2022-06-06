@@ -87,13 +87,20 @@
   <div class="bulkers-card">
 
     <div class="bulker-info">
-      <%# <p class="bulker-name">Susanito Perex</p> %>
-      <%# <div class="img-div"><%= image_tag "shapes_", class: "img-avatar" %>
+      <div class="info-bu">
+        <h5><%= @offer.user.first_name %> <%= @offer.user.last_name %></h5>
+        <p>Is placing this order</p>
+      </div>
+        <% if  @offer.user.photo.attached? %>
+          <%= cl_image_tag @offer.user.photo.key, class: "user-image" %>
+        <% else %>
+          <%= image_tag "one-blank", class: "user-image" %>
+        <% end %>
     </div>
 
     <div class="bulkers-in">
-      <%# <div class="img-div"><%= image_tag "shapes_" %>
-      <%# <p>45 other bulkers joined</p> %>
+      <%= image_tag "three-bulkers", class: "three-users" %>
+      <p>45 other bulkers jointed</p>
     </div>
 
   </div>
