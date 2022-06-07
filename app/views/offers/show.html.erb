@@ -83,24 +83,7 @@
   </div>
 <% end %>
 
-<% if user_signed_in? %>
-  <div class="comment-box" data-controller="comment">
-    <%= simple_form_for [@offer, @comment], data: {comment_target: "commentForm", action: "submit->comment#postComment"} do |f| %>
-      <p class="comment-input"><%= f.input :content, label: "Comment content" %>Comment</p>
-      <%# <input data-comment-list-target="comment-input" type="text" id="comment-box" placeholder="Enter comment"> %>
-      <%= f.submit "Post", class: "button btn-filled", data: { comment_target: "button" } %>
-    <% end %>
-        <ul data-comment-target="commentList" id="comments">
-      <% @offer.comments.each do |comment| %>
-        <%= render "comments/comment", comment: comment %>
-      <% end %>
-        </ul>
-  </div>
-<% else %>
-  <p>Please sign in to see the comments.</p>
-<% end %>
-
-
+<%# Bulkers-card %>
   <div class="bulkers-card">
 
     <div class="bulker-info">
@@ -127,6 +110,23 @@
 
 
   </div>
+
+<%# Comments section %>
+<% if user_signed_in? %>
+  <div class="comment-box" data-controller="comment">
+    <%= simple_form_for [@offer, @comment], data: {comment_target: "commentForm", action: "submit->comment#postComment"} do |f| %>
+      <p class="comment-input"><%= f.input :content, label: "Leave a message" %></p>
+      <%= f.submit "Post", class: "button btn-filled", data: { comment_target: "button" } %>
+    <% end %>
+        <ul data-comment-target="commentList" id="comments">
+      <% @offer.comments.each do |comment| %>
+        <div class="cmm"><%= render "comments/comment", comment: comment %> </div>
+      <% end %>
+        </ul>
+  </div>
+<% else %>
+  <p class="no-sign-comm">Please <%= link_to "sign-in", "/users/sign_in" %> to see the comments.</p>
+<% end %>
 
 
   <% if policy(@offer).edit? %>
