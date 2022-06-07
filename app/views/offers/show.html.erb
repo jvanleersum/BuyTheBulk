@@ -104,7 +104,11 @@
     <p class="order-inactive">You cannot place an order as this offer is no longer active</p>
   </div>
 <% end %>
-
+ <div class="suppliers-info">
+    <h2>Supplier Information</h2>
+    <h5><%= @order.offer.supplier.name %></h5>
+    <a href="<%= @order.offer.supplier_offer_url %>">Supplier's website</a>
+  </div>
 <%# Bulkers-card %>
   <div class="bulkers-card">
 
