@@ -10,22 +10,23 @@
               <%= link_to "View offers", offers_path, class: "dropdown-item" %>
               <%# <%= link_to "Profile details", profile_page_path, class: "dropdown-item" %>
               <% if user_signed_in? %>
-                <% if current_user.business.present?  %>
+                <%= link_to "Upload an offer", new_offer_path, class: "dropdown-item" %>
+                <%= link_to "My orders", orders_path, class: "dropdown-item" %>
+                <% unless current_user.business.present? %>
+                <%= link_to "Add my business", new_business_path, class: "dropdown-item" %>
+                <% else  %>
                 <%= link_to edit_business_path(current_user.business), class: "dropdown-item" do %>
                   <% if current_user.business.photo.key %>
-                  <%= cl_image_tag current_user.business.photo.key, class: "avatar-bordered" %>
+                  <%= cl_image_tag current_user.business.photo.key, class: "avatar-small" %>
                   <% else %>
-                  <%= image_tag "avatar.jpg", class:"avatar-bordered"%>
+                  <%= image_tag "avatar.jpg", class:"avatar-small"%>
                   <% end %>
-                <%="@#{current_user.business.nickname}" %>
+                  <%="@#{current_user.business.nickname}" %>
                 <% end %>
-                <% else %>
-                <%= link_to "Add my business", new_business_path, class: "dropdown-item" %>
                 <% end %>
-                <%= link_to "My orders", orders_path, class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               <% else %>
-                <%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %>
+                <%= link_to "Log in", new_user_session_path, class: "dropdown-item" %>
                 <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
               <% end %>
             </div>
