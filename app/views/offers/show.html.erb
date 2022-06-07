@@ -1,6 +1,6 @@
 <div class="container-show">
 
-<%# Card with offer details %>
+<%# Card with OFFER details %>
   <div class="offer-details">
     <% if @offer.photo.key %>
       <%= cl_image_tag @offer.photo.key, class: "img-offer-card img-offer-show"%>
@@ -117,22 +117,8 @@
     <% end %>
   </div>
 
-<%# Comments section %>
-<% if user_signed_in? %>
-  <div class="comment-box" data-controller="comment">
-    <%= simple_form_for [@offer, @comment], data: {comment_target: "commentForm", action: "submit->comment#postComment"} do |f| %>
-      <p class="comment-input"><%= f.input :content, label: "Leave a message" %></p>
-      <%= f.submit "Post", class: "button btn-filled", data: { comment_target: "button" } %>
-    <% end %>
-        <ul data-comment-target="commentList" id="comments">
-      <% @offer.comments.each do |comment| %>
-        <div class="cmm"><%= render "comments/comment", comment: comment %> </div>
-      <% end %>
-        </ul>
-  </div>
-<% else %>
-  <p class="no-sign-comm">Please <%= link_to "sign-in", "/users/sign_in" %> to see the comments.</p>
-<% end %>
+  <%# Comments section %>
+  <%= render "comments/comment_box" %>
 
 
   <% if policy(@offer).edit? %>

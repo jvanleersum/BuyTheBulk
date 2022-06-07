@@ -1,0 +1,18 @@
+<%# The CSS for this partial is located in the _show.scss %>
+
+<% if user_signed_in? %>
+  <div class="comment-box" data-controller="comment">
+    <p class="comm-s">Comments</p>
+      <ul data-comment-target="commentList" id="comments">
+        <% @offer.comments.each do |comment| %>
+          <div class="cmm"><%= render "comments/comment", comment: comment %> </div>
+        <% end %>
+      </ul>
+    <%= simple_form_for [@offer, @comment], data: {comment_target: "commentForm", action: "submit->comment#postComment"} do |f| %>
+      <p class="comment-input"><%= f.input :content, label: "Leave a message" %></p>
+      <%= f.submit "Post", class: "button btn-filled", data: { comment_target: "button" } %>
+    <% end %>
+  </div>
+<% else %>
+  <p class="no-sign-comm">Please <%= link_to "sign-in", "/users/sign_in" %> to see the comments.</p>
+<% end %>
