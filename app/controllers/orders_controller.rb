@@ -8,6 +8,14 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     authorize @order
+    @offer = @order.offer
+    authorize @offer
+    @order.offer = @offer
+    participants = []
+    @offer.orders.each do |order|
+      participants << order.user
+    end
+    @participants = participants.uniq
   end
 
   def create
@@ -17,11 +25,6 @@ class OrdersController < ApplicationController
     authorize @offer
     @order.offer = @offer
     @order.user = current_user
-    participants = []
-    @offer.orders.each do |order|
-      participants << order.user
-    end
-    @participants = participants.uniq
     if @order.save!
       redirect_to order_confirmation_path(@order)
     else
