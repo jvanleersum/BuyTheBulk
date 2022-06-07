@@ -27,7 +27,7 @@ class OffersController < ApplicationController
     @comment = Comment.new
     authorize @offer
     @order = Order.new
-    authorize @offer
+    authorize @order
     @order.offer = @offer
     participants = []
     @offer.orders.each do |order|

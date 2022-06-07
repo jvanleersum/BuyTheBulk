@@ -10,6 +10,14 @@ class OrdersController < ApplicationController
     @offer = @order.offer
     @comment = Comment.new
     authorize @order
+    @offer = @order.offer
+    authorize @offer
+    @order.offer = @offer
+    participants = []
+    @offer.orders.each do |order|
+      participants << order.user
+    end
+    @participants = participants.uniq
   end
 
   def create
