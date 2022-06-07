@@ -1,0 +1,35 @@
+.order-show-total {
+  display: flex;
+  flex-direction: column;
+  .totals{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.order-amount > p{
+  font-size: 1rem;
+}
+
+.green-line{
+  border-bottom: 1.5px solid $green2;
+  width: 80%;
+  align-self: center;
+  margin: 0.5rem 0;
+  
+}
+.target-expired{
+  p {
+    font-size: 1rem;
+  }
+}
+
+.expired-buttons{
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+}
+
+.btn-expired{
+  width: 40%;
+}

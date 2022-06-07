@@ -3,7 +3,7 @@
     <h3 class="header text center">My orders</h3>
 
     <div class='order-status-tabs'>  
-      <%= link_to "Active", orders_path(tab: "active"), class:"button #{params[:tab] == 'active' ? 'btn-filled' : 'btn-empty'} btn-order-status" , id:"active-orders"%>
+      <%= link_to "Active", orders_path(tab: "active"), class:"button #{params[:tab] == 'active' || !params[:tab].present? ? 'btn-filled' : 'btn-empty'} btn-order-status" , id:"active-orders"%>
       <%= link_to "Accomplished", orders_path(tab: "accomplished"), class: "button #{params[:tab] == 'accomplished' ? 'btn-filled' : 'btn-empty'} btn-order-status", id:"accomplished-orders"%>
       <%= link_to "Expired", orders_path(tab: "expired"), class:"button #{params[:tab] == 'expired' ? 'btn-filled' : 'btn-empty'} btn-order-status", id:"expired-orders"%>
     </div>
