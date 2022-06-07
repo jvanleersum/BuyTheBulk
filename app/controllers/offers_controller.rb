@@ -29,12 +29,11 @@ class OffersController < ApplicationController
     @order = Order.new
     authorize @offer
     @order.offer = @offer
-    @participants = []
+    participants = []
     @offer.orders.each do |order|
-      @participants << order.user
+      participants << order.user
     end
-    @participants.uniq!
-
+    @participants = participants.uniq
   end
 
   def new
