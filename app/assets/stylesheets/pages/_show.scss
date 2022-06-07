@@ -38,6 +38,20 @@
   .offer-content {
     padding: 20px;
   }
+  .suppliers-info {
+    padding: 1rem;
+  }
+
+}
+
+.suppliers-info {
+  margin: 0 auto;
+  border: 0.5px solid $green1;
+  border-radius: 10px;
+  width: 85%;
+  text-align: center;
+  font-style: italic;
+  padding: 1rem;
 }
 
 .amount-card {
