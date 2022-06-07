@@ -52,6 +52,12 @@
   text-align: center;
   font-style: italic;
   padding: 1rem;
+  a{
+    text-decoration: none;
+    font-weight: bold;
+    font-style:initial;
+    color: $green1;
+  }
 }
 
 .amount-card {
@@ -118,9 +124,8 @@
   .bulker-info {
     justify-content: center;
     display: flex;
-    margin-top: 1rem;
+    padding-top: 0.4rem;
     h5 {
-      padding-top: 0.4rem;
       margin: 0;
       text-align: right;
       font-style: italic;
@@ -143,6 +148,7 @@
 
   .bulkers-in {
     display: flex;
+    padding-bottom: 0.4rem;
     justify-content: center;
     margin: 0 auto;
     margin-bottom: 1rem;
@@ -200,4 +206,26 @@
   margin: 0 auto 20px auto;
   text-align: center;
   padding: 20px;
+}
+
+.edit-icon {
+  font-size: 2rem;
+  text-align: left;
+  position: absolute;
+  right: 3rem;
+  top: 6rem;
+  z-index: 10;
+  a {
+    text-shadow: 1px 1px 1px white;
+    color: $green1 ;
+    &:hover{
+      color: $green2 !important;
+    }
+  }
+  #delete-icon {
+    color: #9e0101cb;
+      &:hover{
+        color: #9e010170;
+      }
+  }
 }

@@ -99,7 +99,7 @@
       <% if  @order.offer.user.business.photo.attached? %>
         <%= cl_image_tag @order.offer.user.business.photo.key, class: "user-image" %>
       <% else %>
-        <%= image_tag "one-blank", class: "user-image" %>
+        <%= image_tag "one-blank.png", class: "user-image" %>
       <% end %>
   </div>
   <div class="bulkers-in">
