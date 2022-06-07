@@ -1,29 +1,13 @@
 <div class="container">
 
-  <div class="header text center">
-    <h3>These are your active orders:</h3>
-  </div>
+    <h3 class="header text center">My orders</h3>
 
-    <div class="orders-card flex">
-      <% @orders.each do |order| %>
-      <div class="order-description flex">
-        <div class="order-img">
-          <% if order.offer.photo.key %>
-              <%= cl_image_tag order.offer.photo.key, class: "order-img" %>
-            <% else %>
-            <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"order-img"%>
-            <% end %>
-        </div>
-        <div class="order-info">
-          <h4><%= order.offer.name %></h4>
-          <br>
-          <p><%= order.offer.description %></p>
-        </div>
-        <div class="order-status">
-          <%= order.offer.status %>
-        </div>
-      </div>
-      <% end %>
+    <div class='order-status-tabs'>  
+      <%= link_to "Active", orders_path(tab: "active"), class:"button #{params[:tab] == 'active' ? 'btn-filled' : 'btn-empty'} btn-order-status" , id:"active-orders"%>
+      <%= link_to "Accomplished", orders_path(tab: "accomplished"), class: "button #{params[:tab] == 'accomplished' ? 'btn-filled' : 'btn-empty'} btn-order-status", id:"accomplished-orders"%>
+      <%= link_to "Expired", orders_path(tab: "expired"), class:"button #{params[:tab] == 'expired' ? 'btn-filled' : 'btn-empty'} btn-order-status", id:"expired-orders"%>
     </div>
-  </div>
+
+    <%= render "orders_cards", orders: @orders %>
+
 </div>
