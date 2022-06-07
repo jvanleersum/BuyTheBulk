@@ -1,0 +1,12 @@
+
+<div class="business-info flex">
+  <h2><%= @business.nickname  %></h2>
+  <div>
+    <% if  @business.photo.attached? %>
+      <%= cl_image_tag @business.photo.key, class: "business-image" %>
+    <% else %>
+      <%= image_tag "one-blank", class: "user-image" %>
+    <% end %>
+  </div>
+  <p><%= @business.address %></p>
+</div>

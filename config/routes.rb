@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :orders, only: [ :create ]
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end
-  resources :businesses, only: [ :new, :create, :edit, :update ]
+  resources :businesses, only: [ :show, :new, :create, :edit, :update ]
   resources :orders, only: [ :index, :show, :destroy ] do
     get "/confirmation", to: "orders#confirmation"
   end
