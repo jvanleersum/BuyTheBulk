@@ -1,6 +1,6 @@
 <div class="container-show">
 
-<%# Card with order details %>
+  <%# Card with order details %>
   <div class="offer-details">
     <% if @order.offer.photo.key %>
       <%= cl_image_tag @order.offer.photo.key, class: "img-offer-card img-offer-show"%>
@@ -40,27 +40,37 @@
         <% end %>
         <div class="offer-category"><%= @order.offer.category %></div>
       </div>
-
   </div>
-
 </div>
 
-<div class="bulkers-card">
-  <div class="bulker-info">
-    <div class="info-bu">
-      <h5><%= @order.offer.user.first_name %> <%= @order.offer.user.last_name %></h5>
-      <p>Is placing this order</p>
-    </div>
-      <% if  @order.offer.user.photo.attached? %>
-        <%= cl_image_tag @order.offer.user.photo.key, class: "user-image" %>
-      <% else %>
-        <%= image_tag "one-blank", class: "user-image" %>
-      <% end %>
+  <div class="suppliers-info">
+    <h2>Supplier Information</h2>
+    <h5><%= @order.offer.supplier.name %></h5>
+    <a href="<%= @order.offer.supplier_offer_url %>">Supplier's website</a>
   </div>
 
-  <div class="bulkers-in">
-    <%= image_tag "three-bulkers", class: "three-users" %>
-    <p>45 other bulkers jointed</p>
-  </div>
+  <div class="bulkers-card">
+
+    <div class="bulker-info">
+      <div class="info-bu">
+        <h5>@<%= @order.offer.user.business.nickname %></h5>
+        <p>Is placing this order</p>
+      </div>
+        <% if  @order.offer.user.business.photo.attached? %>
+          <%= cl_image_tag @offer.user.business.photo.key, class: "user-image" %>
+        <% else %>
+          <%= image_tag "one-blank", class: "user-image" %>
+        <% end %>
+    </div>
+    <% if @partipants.nil? %>
+        <div class="bulkers-in">
+          <p>Be the first bulker to join @<%=@order.offer.user.business.nickname %>!</p>
+        </div>
+      <% else  %>
+        <div class="bulkers-in">
+          <%= image_tag "three-bulkers", class: "three-users" %>
+          <p><%= @participants.count  %> other bulkers joined</p>
+        </div>
+    <% end %>
 
 </div>
