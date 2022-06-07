@@ -1,28 +1,34 @@
 <div class="container">
 
-  <div class="header text center">
-    <h3>These are your active orders:</h3>
-  </div>
+    <h3 class="header text center">My orders</h3>
+
+    <div class='order-status-tabs'>
+      <div id="active-orders" class="button btn-filled btn-order-status">Active</div>
+      <div id="accomplished-orders" class="button btn-empty btn-order-status">Accomplished</div>
+      <div id="expired-orders" class="button btn-empty btn-order-status">Expired</div>
+    </div>
 
     <div class="orders-card flex">
       <% @orders.each do |order| %>
-      <div class="order-description flex">
-        <div class="order-img">
-          <% if order.offer.photo.key %>
-              <%= cl_image_tag order.offer.photo.key, class: "order-img" %>
-            <% else %>
-            <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"order-img"%>
-            <% end %>
-        </div>
-        <div class="order-info">
-          <h4><%= order.offer.name %></h4>
-          <br>
-          <p><%= order.offer.description %></p>
-        </div>
-        <div class="order-status">
-          <%= order.offer.status %>
-        </div>
-      </div>
+        <%= link_to order_path(order), class:"order-card-link" do %>
+          <div class="order-description flex">
+            <div class="order-img">
+              <% if order.offer.photo.key %>
+                <%= cl_image_tag order.offer.photo.key, class: "order-img" %>
+              <% else %>
+                <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"order-img"%>
+              <% end %>
+            </div>
+            <div class="order-info">
+              <h4><%= order.offer.name %></h4>
+              <div>
+                <p>Ordered on <%= order.created_at.strftime("%d-%m-%Y") %></p>
+                <p>Offer expires <%= order.offer.days_until_deadline%></p>
+              </div>
+            </div>
+            <i class="fas fa-angle-right order-arrow"></i>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
