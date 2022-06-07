@@ -42,40 +42,79 @@
       </div>
   </div>
 </div>
-
-  <div class="suppliers-info">
-    <h2>Supplier Information</h2>
-    <h5><%= @order.offer.supplier.name %></h5>
-    <a href="<%= @order.offer.supplier_offer_url %>">Supplier's website</a>
-  </div>
-
-  <div class="bulkers-card">
-
-    <div class="bulker-info">
-      <div class="info-bu">
-        <h5>@<%= @order.offer.user.business.nickname %></h5>
-        <p>Is placing this order</p>
-      </div>
-        <% if  @order.offer.user.business.photo.attached? %>
-          <%= cl_image_tag @order.offer.user.business.photo.key, class: "user-image" %>
-        <% else %>
-          <%= image_tag "one-blank", class: "user-image" %>
-        <% end %>
+<div class="amount-card">
+  <div class="order-ordered-info">
+    <h3>Order details</h3>
+    <div class="order-amount">
+      <p>Ordered amount</p><p><%= @order.amount %></p>
     </div>
-    <div class="bulkers-in">
-      <% @participants.first(3).each do |user| %>
-        <div class="three-users-box">
-          <% if user.business.photo.attached? %>
-            <%= cl_image_tag user.business.photo.key, class:"three-users"%>
-          <% else %>
-            <%= image_tag "one-blank.png", class: "three-users" %>
-          <% end %>
+    <div class="order-show-total">
+      <% if @order.offer.target_reached? %>
+        <div class="totals">
+          <p><strong>Total</strong></p>
+          <p><strong>€<%= (@order.amount * @order.offer.target_price).round(2) %></strong></p>
         </div>
+        <div class="savings">
+          <p>You are saving</p> 
+          <p>€<%=(@order.amount * (@order.offer.initial_price - @order.offer.target_price)).round(2)%></p>
+        </div>
+      <% else %>
+        <div class="totals">
+          <p><strong>Total</strong></p>
+          <p><strong>€<%= (@order.amount * @order.offer.initial_price).round(2) %></strong></p>
+        </div>
+        <% if @order.offer.status == 'active' %>
+          <div class="savings">
+            <p>You could be saving</p>
+            <p>€<%=(@order.amount * (@order.offer.initial_price - @order.offer.target_price)).round(2)%></p>
+          </div>
+        <% elsif @order.offer.status == 'expired' %>
+          <div class="green-line"></div>
+          <div class="target-expired">
+            <p>The target was not reached. Do you want to confirm you order for the initial price?</p>
+          </div>
+          <div class="expired-buttons">
+            <div class="button btn-empty btn-expired">No</div>
+            <div class="button btn-filled btn-expired">Yes!</div>
+          </div>
+        <% end %>
       <% end %>
-      <p><%= @participants.count  %> other bulkers joined</p>
     </div>
   </div>
 </div>
 
+
+<div class="suppliers-info">
+  <h2>Supplier Information</h2>
+  <h5><%= @order.offer.supplier.name %></h5>
+  <a href="<%= @order.offer.supplier_offer_url %>">Supplier's website</a>
+</div>
+
+<div class="bulkers-card">
+  <div class="bulker-info">
+    <div class="info-bu">
+      <h5>@<%= @order.offer.user.business.nickname %></h5>
+      <p>Is placing this order</p>
+    </div>
+      <% if  @order.offer.user.business.photo.attached? %>
+        <%= cl_image_tag @order.offer.user.business.photo.key, class: "user-image" %>
+      <% else %>
+        <%= image_tag "one-blank", class: "user-image" %>
+      <% end %>
+  </div>
+  <div class="bulkers-in">
+    <% @participants.first(3).each do |user| %>
+      <div class="three-users-box">
+        <% if user.business.photo.attached? %>
+          <%= cl_image_tag user.business.photo.key, class:"three-users"%>
+        <% else %>
+          <%= image_tag "one-blank.png", class: "three-users" %>
+        <% end %>
+      </div>
+    <% end %>
+    <p><%= @participants.count  %> other bulkers joined</p>
+  </div>
+</div>
+
 <%# Comments section %>
-  <%= render "comments/comment_box" %>
+<%= render "comments/comment_box" %>
