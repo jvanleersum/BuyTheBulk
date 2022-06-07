@@ -153,9 +153,18 @@
 
 // Comment box plus post button
 .comment-box {
+  border: 0.5px solid $green1;
   border-radius: 10px;
   width: 85%;
-  margin: -20px auto 0 auto;
+  margin: 10px auto 0 auto;
+  padding: 10px;
+  .comm-s {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1rem;
+    margin-left: 10px;
+    border-bottom: 0.5px solid $green1;
+  }
   label {
     margin: 0;
   }
@@ -164,13 +173,17 @@
     padding: 0%;
   }
   .user-comment {
-    font-weight: bold;
     font-style: italic;
-    margin: 0;
     color: $gray;
+
   }
-  .content-comment {
-    border-bottom: $green3 solid 4px;
+  .cmm {
+    padding: 10px 30px;
+    border-bottom: solid 0.5px $green1;
+    p {
+      margin: 0;
+      border-bottom: 4px $green1;
+    }
   }
 }
 

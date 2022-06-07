@@ -7,6 +7,8 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @offer = @order.offer
+    @comment = Comment.new
     authorize @order
   end
 

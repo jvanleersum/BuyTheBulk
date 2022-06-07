@@ -5,7 +5,7 @@ class Offer < ApplicationRecord
   belongs_to :supplier
   has_many :orders, dependent: :delete_all
   has_many :participants, through: :orders, source: :users
-  has_many :comments
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :orders
 
   has_one_attached :photo

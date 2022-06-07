@@ -1,6 +1,6 @@
 <div class="container-show">
 
-  <%# Card with order details %>
+  <%# Card with ORDER details %>
   <div class="offer-details">
     <% if @order.offer.photo.key %>
       <%= cl_image_tag @order.offer.photo.key, class: "img-offer-card img-offer-show"%>
@@ -72,5 +72,7 @@
           <p><%= @participants.count  %> other bulkers joined</p>
         </div>
     <% end %>
-
 </div>
+
+<%# Comments section %>
+  <%= render "comments/comment_box" %>
