@@ -97,18 +97,24 @@
           <%= image_tag "one-blank.png", class: "user-image" %>
         <% end %>
     </div>
-    <% if @partipants.nil? %>
+    <% if @participants.nil? %>
         <div class="bulkers-in">
           <p>Be the first bulker to join @<%=@offer.user.business.nickname %>!</p>
         </div>
       <% else  %>
         <div class="bulkers-in">
-          <%= image_tag "three-bulkers.png", class: "three-users" %>
+          <% @offer.participants.first(3).each do |user| %>
+            <div class="three-users-box">
+              <% if user.business.photo.attached? %>
+                <%= cl_image_tag user.business.photo.key, class:"three-users"%>
+              <% else %>
+                <%= image_tag "one-blank.png", class: "three-users" %>
+              <% end %>
+            </div>
+          <% end %>
           <p><%= @participants.count  %> other bulkers joined</p>
         </div>
     <% end %>
-
-
   </div>
 
 <%# Comments section %>
