@@ -3,10 +3,32 @@
 <%# Card with OFFER details %>
   <div class="offer-details">
     <% if @offer.photo.key %>
-      <%= cl_image_tag @offer.photo.key, class: "img-offer-card img-offer-show"%>
+      <div class="od-pic">
+        <%= cl_image_tag @offer.photo.key, class: "img-offer-card img-offer-show"%>
+        <% if policy(@offer).edit? %>
+          <div class="edit-icon">
+            <%= link_to edit_offer_path(@offer) do %>
+              <i class="fas fa-edit"></i>
+             <% end %>
+             <%= link_to offer_path(@offer), data: { confirm: "Are you sure?" }, method: :delete do %>
+                <i class="fas fa-trash-alt" id="delete-icon"></i>
+              <% end %>
+          </div>
+        <% end %>
+      </div>
     <% else %>
     <div class="od-pic">
       <%= image_tag "https://cdn.shopify.com/s/files/1/0241/6856/2743/products/2_1296x.png?v=1637265121", class:"img-offer-card img-offer-show"%>
+        <% if policy(@offer).edit? %>
+          <div class="edit-icon">
+            <%= link_to edit_offer_path(@offer) do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to offer_path(@offer), data: { confirm: "Are you sure?" }, method: :delete do %>
+                <i class="fas fa-trash-alt" id="delete-icon"></i>
+              <% end %>
+          </div>
+      <% end %>
     </div>
     <% end %>
     <div class="offer-content">
@@ -120,9 +142,4 @@
   <%# Comments section %>
   <%= render "comments/comment_box" %>
 
-
-  <% if policy(@offer).edit? %>
-  <%= link_to "Edit this offer", edit_offer_path(@offer) %>
-  <%= link_to "Delete the offer", offer_path(@offer), method: :delete %>
-  <% end %>
 </div>

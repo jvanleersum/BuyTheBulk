@@ -199,3 +199,25 @@
   text-align: center;
   padding: 20px;
 }
+
+.edit-icon {
+  font-size: 2rem;
+  text-align: left;
+  position: absolute;
+  right: 3rem;
+  top: 6rem;
+  z-index: 10;
+  a {
+    text-shadow: 1px 1px 1px white;
+    color: $green1 ;
+    &:hover{
+      color: $green2 !important;
+    }
+  }
+  #delete-icon {
+    color: #9e0101cb;
+      &:hover{
+        color: #9e010170;
+      }
+  }
+}
