@@ -78,4 +78,7 @@
 .order-card-link {
   text-decoration: none;
   color: black;
+  &:hover{
+    color: black;
+  }
 }

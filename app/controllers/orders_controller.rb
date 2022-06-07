@@ -2,7 +2,12 @@ class OrdersController < ApplicationController
   skip_before_action :verify_business, except: :create
   def index
     @orders = policy_scope(Order)
-    @orders = Order.where(user_id:current_user)
+    @orders = Order.joins(:offer).where(user_id:current_user).order("offers.deadline ASC")
+    if params[:tab].present?
+      @orders = @orders.where("offers.status = '#{params[:tab]}'")
+    else
+      @orders = @orders.where("offers.status = 'active'")
+    end
   end
 
   def show
