@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :verify_business, except: [:new, :edit, :create ]
   def index
     UpdateOfferStatusJob.perform_now
     if params[:query].present?
@@ -23,10 +24,17 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    @comment = Comment.new
     authorize @offer
     @order = Order.new
     authorize @offer
     @order.offer = @offer
+    @participants = []
+    @offer.orders.each do |order|
+      @participants << order.user
+    end
+    @participants.uniq!
+
   end
 
   def new
@@ -47,7 +55,7 @@ class OffersController < ApplicationController
     @order.offer = @offer
     @order.user = current_user
 
-    if @offer.save
+    if @offer.save && @order.save
       redirect_to offer_path(@offer), notice: 'Your offer was successfully created! '
     else
       render :new

@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  skip_before_action :verify_business, except: :create
   def index
     @orders = policy_scope(Order)
     @orders = Order.where(user_id:current_user)

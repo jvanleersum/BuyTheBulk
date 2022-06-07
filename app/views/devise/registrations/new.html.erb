@@ -22,18 +22,6 @@
       <%= f.input :last_name,
                   required: true,
                   autofocus: true %>
-      <%= simple_fields_for :business do |f| %>
-               <%= f.input :name,
-                  required: true,
-                  autofocus: true,
-                  hint: 'What is your business name?'%>
-               <%= f.input :nickname,
-                  required: true,
-                  autofocus: true,
-                  hint: 'Select a unique nickname :)'%>
-               <%= f.input :address, hint: 'Where is your business located?'%>
-               <%= f.input :description, hint: 'How many will you buy?'%>
-               <% end %>
     </div>
 
     <div class="form-actions">
