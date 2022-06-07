@@ -9,8 +9,8 @@ Comment.destroy_all
 Order.destroy_all
 Offer.destroy_all
 Supplier.destroy_all
-User.destroy_all
 Business.destroy_all
+User.destroy_all
 
 lara = User.new({
   first_name: 'Lara',
