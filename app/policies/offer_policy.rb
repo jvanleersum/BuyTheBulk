@@ -22,24 +22,36 @@ class OfferPolicy < ApplicationPolicy
   end
 
   def edit?
-    if user.present?
-      return user.admin
+    if user.present? && user.admin?
+      return true
+    elsif user.present?
+      if owner && just_owner_orders
+        return true
+      end
     else
       return false
     end
   end
 
   def update?
-    if user.present?
-      return user.admin
+    if user.present? && user.admin?
+      return true
+    elsif user.present?
+      if owner && just_owner_orders
+        return true
+      end
     else
       return false
     end
   end
 
   def destroy?
-    if user.present?
-      return user.admin
+    if user.present? && user.admin?
+      return true
+    elsif user.present?
+      if owner && just_owner_orders
+        return true
+      end
     else
       return false
     end
@@ -51,5 +63,19 @@ class OfferPolicy < ApplicationPolicy
     else
       return false
     end
+  end
+
+  private
+
+  def owner
+    record.user == user
+  end
+
+  def just_owner_orders
+    sum = 0
+    record.orders.each do |order|
+        sum += 1 if order.user != user
+    end
+    return sum == 0
   end
 end
