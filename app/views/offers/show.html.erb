@@ -47,7 +47,7 @@
 <%# Order card with input for amount of products requiered %>
 <% if @offer.active? %>
   <% if @offer.target_reached? %>
-    <div class="amount-card" data-controller="total-price-calc"  data-total-price-calc-unit-price-value="<%= @offer.initial_price %>" data-total-price-calc-target-price-value="<%= @offer.target_price %>">
+    <div class="amount-card" data-controller="total-price-calc"  data-total-price-calc-unit-price-value="<%= @offer.initial_price %>"data-total-price-calc-current-amount-value="<%= @offer.ordered_amount %>" data-total-price-calc-target-price-value="<%= @offer.target_price %>">
       <%= simple_form_for [ @offer, @order ], data: {action: "change input->total-price-calc#reachedPrice"} do |f| %>
         <p><%= f.input :amount, label: "Order amount", input_html: { data: { total_price_calc_target:"amount" }} %></p>
         <div class="total">
@@ -62,7 +62,7 @@
       <% end %>
     </div>
     <% else %>
-    <div class="amount-card" data-controller="total-price-calc"  data-total-price-calc-unit-price-value="<%= @offer.initial_price %>" data-total-price-calc-target-price-value="<%= @offer.target_price %>">
+    <div class="amount-card" data-controller="total-price-calc"  data-total-price-calc-unit-price-value="<%= @offer.initial_price %>" data-total-price-calc-target-amount-value="<%= @offer.target_amount %>" data-total-price-calc-current-amount-value="<%= @offer.ordered_amount %>" data-total-price-calc-target-price-value="<%= @offer.target_price %>">
       <%= simple_form_for [ @offer, @order ], data: {action: "change input->total-price-calc#updatePrice"} do |f| %>
         <p><%= f.input :amount, label: "Order amount", input_html: { data: { total_price_calc_target:"amount" } } %></p>
         <div class="total">
@@ -70,7 +70,7 @@
           <p data-total-price-calc-target="total"><i>0 €</i></p>
         </div>
         <div class="savings">
-          <p>You could be saving</p>
+          <p data-total-price-calc-target="text">You could be saving</p>
           <p data-total-price-calc-target="savings"><i>0.00 €</i></p>
         </div>
           <%= f.submit "Order", class: "button btn-filled" %>
@@ -83,24 +83,7 @@
   </div>
 <% end %>
 
-<% if user_signed_in? %>
-  <div class="comment-box" data-controller="comment">
-    <%= simple_form_for [@offer, @comment], data: {comment_target: "commentForm", action: "submit->comment#postComment"} do |f| %>
-      <p class="comment-input"><%= f.input :content, label: "Comment content" %>Comment</p>
-      <%# <input data-comment-list-target="comment-input" type="text" id="comment-box" placeholder="Enter comment"> %>
-      <%= f.submit "Post", class: "button btn-filled", data: { comment_target: "button" } %>
-    <% end %>
-        <ul data-comment-target="commentList" id="comments">
-      <% @offer.comments.each do |comment| %>
-        <%= render "comments/comment", comment: comment %>
-      <% end %>
-        </ul>
-  </div>
-<% else %>
-  <p>Please sign in to see the comments.</p>
-<% end %>
-
-
+<%# Bulkers-card %>
   <div class="bulkers-card">
 
     <div class="bulker-info">
@@ -114,19 +97,42 @@
           <%= image_tag "one-blank.png", class: "user-image" %>
         <% end %>
     </div>
-    <% if @partipants.nil? %>
+    <% if @participants.nil? %>
         <div class="bulkers-in">
           <p>Be the first bulker to join @<%=@offer.user.business.nickname %>!</p>
         </div>
       <% else  %>
         <div class="bulkers-in">
-          <%= image_tag "three-bulkers.png", class: "three-users" %>
+          <% @offer.participants.first(3).each do |user| %>
+            <div class="three-users-box">
+              <% if user.business.photo.attached? %>
+                <%= cl_image_tag user.business.photo.key, class:"three-users"%>
+              <% else %>
+                <%= image_tag "one-blank.png", class: "three-users" %>
+              <% end %>
+            </div>
+          <% end %>
           <p><%= @participants.count  %> other bulkers joined</p>
         </div>
     <% end %>
-
-
   </div>
+
+<%# Comments section %>
+<% if user_signed_in? %>
+  <div class="comment-box" data-controller="comment">
+    <%= simple_form_for [@offer, @comment], data: {comment_target: "commentForm", action: "submit->comment#postComment"} do |f| %>
+      <p class="comment-input"><%= f.input :content, label: "Leave a message" %></p>
+      <%= f.submit "Post", class: "button btn-filled", data: { comment_target: "button" } %>
+    <% end %>
+        <ul data-comment-target="commentList" id="comments">
+      <% @offer.comments.each do |comment| %>
+        <div class="cmm"><%= render "comments/comment", comment: comment %> </div>
+      <% end %>
+        </ul>
+  </div>
+<% else %>
+  <p class="no-sign-comm">Please <%= link_to "sign-in", "/users/sign_in" %> to see the comments.</p>
+<% end %>
 
 
   <% if policy(@offer).edit? %>
