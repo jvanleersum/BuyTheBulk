@@ -9,6 +9,10 @@ class UpdateOfferStatusJob < ApplicationJob
       if offer.deadline < Date.today && offer.target_reached?
         offer.status = 'accomplished'
         offer.save(validate: false)
+        offer.orders.each do |order|
+          order.status = 'accepted'
+          order.save
+        end
       elsif offer.deadline < Date.today
         offer.status = 'expired'
         offer.save(validate: false)

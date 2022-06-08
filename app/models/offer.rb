@@ -19,8 +19,8 @@ class Offer < ApplicationRecord
   validates :supplier_offer_url, presence: true
   validates :category, presence: true, inclusion: { in: %w(Furniture Textiles Decoration Kitchenware\ &\ Dinnerware Take\ away Pots\ &\ plants Outdoor) }
   validates :deadline, presence: true
-  validate :deadline_cannot_be_in_the_past
-  validates :status, inclusion: { in: %w(active accomplished expired)}
+  # validate :deadline_cannot_be_in_the_past
+  validates :status, inclusion: { in: %w(active accomplished expired expired-accepted expired-rejected)}
 
   def deadline_cannot_be_in_the_past
     if deadline.present? && deadline < Date.today

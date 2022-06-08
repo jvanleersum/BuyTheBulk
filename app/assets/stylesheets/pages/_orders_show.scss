@@ -5,6 +5,9 @@
     display: flex;
     justify-content: space-between;
   }
+  .hidden{
+    display: hidden;
+  }
 }
 
 .order-amount > p{
@@ -32,4 +35,16 @@
 
 .btn-expired{
   width: 40%;
+}
+
+.expired-decision {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-expired-status{
+  background-color: $topgray;
+  color: $textgray;
+  margin: 0.5rem 0;
+  width: 85%;
 }

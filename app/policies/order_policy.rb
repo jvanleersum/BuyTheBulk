@@ -32,4 +32,12 @@ class OrderPolicy < ApplicationPolicy
   def destroy_all?
     user.admin
   end
+
+  def accept?
+    record.user == user
+  end
+
+  def reject?
+    record.user == user
+  end
 end

@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   resources :businesses, only: [ :show, :new, :create, :edit, :update ]
   resources :orders, only: [ :index, :show, :destroy ] do
     get "/confirmation", to: "orders#confirmation"
+    patch "/accept", to: "orders#accept"
+    patch "/reject", to: "orders#reject" 
   end
 end

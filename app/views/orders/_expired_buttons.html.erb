@@ -1,0 +1,26 @@
+<% if order.offer.status == 'expired' && order.status == 'pending' %>
+  <div class="target-expired">
+    <h5><em>The target was not reached</em></h5>
+    <p>Do you want to confirm you order for the initial price?</p>
+  </div>
+  <div class="expired-buttons">
+    <%= link_to "No", order_reject_path(order), class:"button btn-empty btn-expired", data:{ action: "click->expired-decision#reject"}%>
+    <%= link_to "Yes", order_accept_path(order), class:"button btn-filled btn-expired", data:{ action: "click->expired-decision#accept"} %>
+  </div>
+  <% elsif order.offer.status == 'expired' && order.status == 'accepted' %>
+  <div class="target-expired">
+    <h5><em>The target was not reached</em></h5>
+    <p>You have chosen to purchase the products at the initial price.</p>
+  </div>
+  <div class="expired-decision accepted">
+    <div class="button btn-expired-status">Accepted</div>
+  </div>
+  <% elsif order.offer.status == 'expired' && order.status == 'rejected' %>
+  <div class="target-expired">
+    <h5><em>The target was not reached</em></h5>
+    <p>You have chosen to cancel the order and get a refund.</p>
+  </div>
+  <div class="expired-decision rejected">
+    <div class="button btn-expired-status">Rejected</div>
+  </div>
+<% end %>

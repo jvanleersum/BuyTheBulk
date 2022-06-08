@@ -53,4 +53,27 @@ class OrdersController < ApplicationController
     authorize @order
     @order.destroy
   end
+
+  def accept
+    @order = Order.find(params[:order_id])
+    authorize @order
+    @order.status = 'accepted'
+    @order.save
+    respond_to do |format|
+      format.html { redirect_to order_path(@order) }
+      format.json { render json: { expired_buttons: render_to_string(partial: "expired_buttons.html.erb", locals: { order: @order }) } }
+    end
+    
+  end
+
+  def reject
+    @order = Order.find(params[:order_id])
+    authorize @order
+    @order.status = 'rejected'
+    @order.save
+    respond_to do |format|
+      format.html { redirect_to order_path(@order) }
+      format.json { render json: { expired_buttons: render_to_string(partial: "expired_buttons.html.erb", locals: { order: @order }) } }
+    end
+  end
 end

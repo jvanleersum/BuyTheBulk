@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_083551) do
     t.bigint "offer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status", default: "pending"
     t.index ["offer_id"], name: "index_orders_on_offer_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
