@@ -33,7 +33,7 @@ class BusinessesController < ApplicationController
   def update
     @business = Business.find(current_user.business.id)
     if @business.update(business_params)
-      redirect_to offers_path, notice: 'Your business was successfully updated'
+      redirect_to business_path, notice: 'Your business was successfully updated'
     else
       render :new
     end
