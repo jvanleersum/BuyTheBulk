@@ -1,7 +1,7 @@
 <div class="business-info flex">
   <div class="photo">
     <% if  @business.photo.attached? %>
-      <%= cl_image_tag @business.photo.key, class: "business-image" %>
+      <%= cl_image_tag @business.photo.key, class: "business-image avatar" %>
     <% else %>
       <%= image_tag "one-blank.png", class: "user-image" %>
     <% end %>
