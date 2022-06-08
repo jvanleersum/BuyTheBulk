@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # end
 
   devise_for :users
-  root to: 'pages#home'
+  get '/search', to: 'pages#home', as: :search
+  #root to: 'pages#home'
+  root to: 'pages#splash'
   # get "/orders/:id/confirmation", to: "orders#confirmation", as: :order_confirmation
   delete "/offers", to: 'offers#destroy_all', as: :destroy_all
   resources :offers do

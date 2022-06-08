@@ -16,7 +16,6 @@ export default class extends Controller {
     .then(response => response.json())
     .then( (data) => {
       console.log(data.message_html)
-
       this.commentListTarget.insertAdjacentHTML('beforeend', data.message_html);
       this.buttonTarget.removeAttribute("disabled");
     });
