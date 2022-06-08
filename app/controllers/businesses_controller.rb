@@ -4,6 +4,12 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find(params[:id])
+    if @business.geocoded?
+      @marker = {
+        lat: @business.latitude,
+        lng: @business.longitude
+      }
+    end
   end
 
   def new
