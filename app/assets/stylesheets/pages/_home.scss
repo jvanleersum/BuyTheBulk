@@ -1,5 +1,9 @@
+.container {
+  margin-top: 5vw;
+}
+
 .container-green {
-  display: inline-block;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
@@ -41,12 +45,14 @@
   margin-top: 3rem !important;
   align-items: center;
   display: flex;
-
   justify-content:center;
+  .button {
+    width: 45vw;
+  }
 }
 
 .search-offer-categories {
-  width: 75vw;
+  //width: 75%;
   margin-top: 1.5rem !important;
   margin-bottom: 3rem !important;
 }
@@ -61,7 +67,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
-  width: 75vw;
+  width: 75%;
 }
 
 .search-product-form {
@@ -74,6 +80,7 @@
   text-decoration: none;
   border-bottom: 3px solid $green2;
   &:hover{
+    color: $gray;
     font-weight: bolder;
     border-bottom: 4px solid $green1;
   }
