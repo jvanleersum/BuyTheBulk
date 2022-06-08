@@ -15,13 +15,13 @@
                 <% unless current_user.business.present? %>
                 <%= link_to "Add my business", new_business_path, class: "dropdown-item" %>
                 <% else  %>
-                <%= link_to edit_business_path(current_user.business), class: "dropdown-item" do %>
+                <%= link_to business_path(current_user.business), class: "dropdown-item" do %>
                   <% if current_user.business.photo.key %>
                   <%= cl_image_tag current_user.business.photo.key, class: "avatar-small" %>
                   <% else %>
                   <%= image_tag "avatar.jpg", class:"avatar-small"%>
                   <% end %>
-                  <%="@#{current_user.business.nickname}" %>
+                  <%="#{current_user.business.nickname}" %>
                 <% end %>
                 <% end %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
