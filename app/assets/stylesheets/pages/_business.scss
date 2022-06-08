@@ -1,12 +1,21 @@
 .business-info {
-  margin: 0 auto;
+  margin: 20px auto;
   width: 85vw;
-  margin-top: 1.2rem;
   align-items: center;
-  border: solid $green2;
+  border: solid $green2 2px;
   text-align: center;
   border-radius: 10px;
-  margin-bottom: 20px;
+
+  box-shadow: rgba(97, 94, 94, 0.24) 0px 1px 8px;
+  .content-business {
+    padding: 20px;
+    p {
+      font-size: 1.2rem;
+    }
+  }
+  p {
+    margin: 0;
+  }
   img {
     margin: 0 auto;
     width: 100%;
@@ -14,5 +23,17 @@
     object-fit: cover;
     object-position: center;
     padding: 10px;
+  }
+  .map2 {
+    padding: 20px;
+  }
+  .contact-info{
+    border: 1px solid $green1;
+    margin: 10px 10px 0 10px;
+    padding: 5px;
+    border-radius: 5px;
+    p {
+      font-size: 1rem;
+    }
   }
 }

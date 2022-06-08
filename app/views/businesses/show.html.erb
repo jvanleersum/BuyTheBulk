@@ -6,13 +6,23 @@
       <%= image_tag "one-blank", class: "user-image" %>
     <% end %>
   </div>
-  <h2><%= @business.nickname.capitalize  %></h2>
-  <p> <%= @business.user.first_name %> <%= @business.user.last_name %></p>
-  <p> <%= @business.address %> </p>
-  <p> <%= @business.description %> </p>
+  <div class="content-business">
+    <h2><%= @business.nickname.capitalize  %></h2>
+    <p> <%= @business.description %> </p>
+    <div class="line"></div>
+    <div class="contact-info">
+      <p><i> Contact Information</i></p>
+      <p> <%= @business.user.first_name %> <%= @business.user.last_name %></p>
+      <p> <%= @business.user.email %> </p>
+      <p> <%= @business.address %> </p>
+    </div>
+  </div>
 
-  <div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-marker-value="<%= @marker.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="map2">
+    <div style="width: 100%; height: 600px;" class="map"
+      data-controller="mapbox"
+      data-mapbox-marker-value="<%= @marker.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
 </div>
