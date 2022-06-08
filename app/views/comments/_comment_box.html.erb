@@ -5,8 +5,9 @@
     <p class="comm-s">Comments</p>
       <ul data-comment-target="commentList" id="comments">
         <% @offer.comments.each do |comment| %>
-          <div class="cmm"><%= render "comments/comment", comment: comment %> </div>
+        <%= render "comments/comment", comment: comment %>
         <% end %>
+
       </ul>
     <%= simple_form_for [@offer, @comment], data: {comment_target: "commentForm", action: "submit->comment#postComment"} do |f| %>
       <p class="comment-input"><%= f.input :content, label: "Leave a message" %></p>
