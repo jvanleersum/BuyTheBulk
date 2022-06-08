@@ -1,5 +1,7 @@
 .container {
   margin-top: 5vw;
+  margin-bottom: 5vw;
+  justify-content: center;
 }
 
 .container-green {
@@ -9,8 +11,6 @@
   justify-content: space-evenly;
   margin: 0 auto;
   max-width: 85vw;
-  margin-left: 2%;
-  margin-right: 2%;
   padding: 10px;
   border: 1px solid $green2;
   border-radius: 0.5rem;
