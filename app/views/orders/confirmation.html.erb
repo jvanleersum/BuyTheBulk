@@ -33,7 +33,7 @@
         <%= render "shared/progress_bar", offer: @order.offer %>
       </div>
     </div>
-  </div>  
+  </div>
   <div>
     <p class="share-text">Share this offer with others!</p>
     <div class='share-link' data-controller="clipboard copy-url">
@@ -42,7 +42,7 @@
     </div>
   </div>
   <div class="confirmation-buttons">
-    <%= link_to "Keep Browsing", root_path, class: "button btn-filled confirmation-button"%>
+    <%= link_to "Keep Browsing", search_path, class: "button btn-filled confirmation-button"%>
     <%= link_to "Dashboard", offers_path, class: "button btn-empty confirmation-button" %>
   </div>
 </div>
