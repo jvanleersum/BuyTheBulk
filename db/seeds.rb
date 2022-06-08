@@ -172,7 +172,7 @@ offer_5.supplier = Supplier.all.sample
 offer_5.save
 
 offer_6 = Offer.new(
-  name: "Plant pots with green and yellow pattern",
+  name: "Plant pots with pattern",
   initial_price: 7.89,
   target_price: 6.29,
   target_amount: 420,
