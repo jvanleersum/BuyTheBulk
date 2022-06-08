@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   # end
 
   devise_for :users
-  get '/search', to: 'pages#home', as: :search
-  #root to: 'pages#home'
-  root to: 'pages#splash'
+  #get '/search', to: 'pages#home', as: :search
+  root to: 'pages#home'
+ # root to: 'pages#splash'
   # get "/orders/:id/confirmation", to: "orders#confirmation", as: :order_confirmation
   delete "/offers", to: 'offers#destroy_all', as: :destroy_all
   resources :offers do
@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   resources :orders, only: [ :index, :show, :destroy ] do
     get "/confirmation", to: "orders#confirmation"
     patch "/accept", to: "orders#accept"
-    patch "/reject", to: "orders#reject" 
+    patch "/reject", to: "orders#reject"
   end
 end
