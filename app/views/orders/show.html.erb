@@ -67,8 +67,7 @@
               <div class="button btn-expired-status">Accepted</div>
             </div>
           <% else %>
-            <p>There is still time for other bulkers to join this offer.</p>
-            <p class="share-text">Share this offer with others!</p>
+            <p>There is still time for other bulkers to join this offer. Share this offer with others!</p>
             <div class='share-link' data-controller="clipboard copy-url">
               <input class='form-field-green' type="text" value=<%=offer_url(@order.offer)%>  data-clipboard-target="source"/>
               <button type="button" class="button btn-filled btn-clipboard" data-action="clipboard#copy click->copy-url#clicked" data-copy-url-target="button"><i class="fas fa-clipboard clipboard-icon"></i></button>
@@ -88,8 +87,7 @@
           <div class="green-line"></div>
           <div class="target-expired">
             <h5><em>The target is not yet reached</em></h5>
-            <p>Don't worry, there is still time!</p>
-            <p class="share-text">Share this offer with others!</p>
+            <p>Don't worry, there is still time! Share this offer with others!</p>
               <div class='share-link' data-controller="clipboard copy-url">
                 <input class='form-field-green' type="text" value=<%=offer_url(@order.offer)%>  data-clipboard-target="source"/>
                 <button type="button" class="button btn-filled btn-clipboard" data-action="clipboard#copy click->copy-url#clicked" data-copy-url-target="button"><i class="fas fa-clipboard clipboard-icon"></i></button>
