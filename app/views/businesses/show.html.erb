@@ -1,9 +1,4 @@
 <div class="business-info flex">
-  <div class="button btn-filled">
-    <% if policy(@business).edit? %>
-      <%= link_to "Update", edit_business_path(@business) %>
-    <% end %>
-  </div>
   <div class="photo">
     <% if  @business.photo.attached? %>
       <%= cl_image_tag @business.photo.key, class: "business-image" %>
@@ -11,6 +6,11 @@
       <%= image_tag "one-blank", class: "user-image" %>
     <% end %>
   </div>
+
+    <% if policy(@business).edit? %>
+    <%= link_to "Update", edit_business_path(@business), class: "btn btn-empty"%>
+    <% end %>
+
   <div class="content-business">
     <h2><%= @business.nickname.capitalize  %></h2>
     <p> <%= @business.description %> </p>
