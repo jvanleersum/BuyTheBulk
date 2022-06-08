@@ -1,4 +1,9 @@
 <div class="business-info flex">
+  <div class="button btn-filled">
+    <% if policy(@business).edit? %>
+      <%= link_to "Update", edit_business_path(@business) %>
+    <% end %>
+  </div>
   <div class="photo">
     <% if  @business.photo.attached? %>
       <%= cl_image_tag @business.photo.key, class: "business-image" %>

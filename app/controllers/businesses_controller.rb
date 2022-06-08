@@ -1,6 +1,8 @@
 class BusinessesController < ApplicationController
   skip_before_action :verify_business
+  skip_before_action :authenticate_user!, only: [:show]
   skip_after_action :verify_authorized
+
 
   def show
     @business = Business.find(params[:id])
