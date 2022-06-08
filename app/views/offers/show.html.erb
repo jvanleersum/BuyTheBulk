@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@offer.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @offer.description %>
-<% content_for :meta_image, @offer.photo.key ? cl_image_path(@offer.photo.path) : image_path('buythebulk-logo.png')%>
+<% content_for :meta_image, @offer.photo.key ? cl_image_path(@offer.photo.key) : image_path('buythebulk-logo.png')%>
 
 <div class="container-show">
 
