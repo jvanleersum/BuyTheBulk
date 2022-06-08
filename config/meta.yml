@@ -1,5 +1,5 @@
 meta_product_name: "BuyTheBulk"
 meta_title: "BuyTheBulk - Sharing to help a community grow"
 meta_description: "BuyTheBulk helps small local businesses grow together through enabling bulk orders on essential products."
-meta_image: "buythebulk-logo.png" # should exist in `app/assets/images/`
+meta_image: "buythebulk-cover.png" # should exist in `app/assets/images/`
 twitter_account: "@buy_the_bulk"   # required for Twitter Cards
