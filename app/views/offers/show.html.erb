@@ -149,11 +149,13 @@
         <h5>@<%= @offer.user.business.nickname %></h5>
         <p>Is placing this order</p>
       </div>
+       <%= link_to business_path(@offer.user.business) do %>
         <% if  @offer.user.business.photo.attached? %>
           <%= cl_image_tag @offer.user.business.photo.key, class: "user-image" %>
         <% else %>
           <%= image_tag "one-blank.png", class: "user-image" %>
         <% end %>
+      <% end %>
     </div>
     <% if @participants.nil? %>
         <div class="bulkers-in">
