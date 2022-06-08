@@ -2,16 +2,14 @@
   <% @skip_navbar = true %>
   <div class="container-green">
     <%= image_tag "buythebulk-logo.png", class: "img-brand"%>
-
     <div class="welcome">
       <% if current_user.present? %>
         <h1>Welcome back!</h1>
         <h3><em><%= current_user.first_name %></em></h3>
       <% else %>
-          <%= link_to "Become a Bulker!", new_user_session_path, class: 'sign-in' %>
+          <%= link_to "Become a Bulker!", new_user_registration_path, class: 'sign-in' %>
       <% end %>
     </div>
-
     <div class="search-offer">
       <%= form_with url: offers_path, method: :get, style:"padding-right: 0;padding-left: 0;" do |f| %>
         <%= f.text_field :query,
@@ -21,7 +19,6 @@
         <%= f.submit "Search", class: "button btn-filled" %>
       <% end %>
     </div>
-
     <div class="categories-section" data-controller="select-categories">
       <h4 class=>Search by category</h4>
       <div class="categories-grid">
