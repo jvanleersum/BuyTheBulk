@@ -5,7 +5,7 @@
     <div class="welcome">
       <% if current_user.present? %>
         <h1>Welcome back!</h1>
-        <h3><em><%= current_user.first_name %></em></h3>
+        <h3><em>@<%= link_to current_user.business.nickname, business_path(current_user.business), class: "sign-in"%></em></h3>
       <% else %>
           <%= link_to "Become a Bulker!", new_user_registration_path, class: 'sign-in' %>
       <% end %>
