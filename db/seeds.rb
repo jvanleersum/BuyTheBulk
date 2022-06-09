@@ -74,7 +74,7 @@ business3 = Business.new(nickname: "vrutal",
 )
 business3.user = david
 business3.save
-business4 = Business.new(nickname: "NeoCafe",
+business4 = Business.new(nickname: "Marilyn",
   description: "We are a couple of frenchies willing to make a change in the world, we have been working for 2 years in the city and we want to help others reach their goals",
   address: "C/Uruguay 234",
   name: "Neo Cafeteria",
@@ -84,11 +84,12 @@ business4.save
 
 print("Users created\n")
 
-supplier1 = Supplier.create(name: "Ikea")
+supplier1 = Supplier.create(name: "LosDuendesDeLaTinta")
 supplier2 = Supplier.create(name: "Amaia Polanco")
 supplier3 = Supplier.create(name: "Fusteria Joan & Maria")
 supplier4 = Supplier.create(name: "Gaia artisans")
- Supplier.create(name: "Flower's and smiles")
+supplier4 = Supplier.create(name: "Gaia artisans")
+Supplier.create(name: "Flower's and smiles")
 
 print("Suppliers created\n")
 

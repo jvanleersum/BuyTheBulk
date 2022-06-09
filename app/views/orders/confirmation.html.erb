@@ -31,11 +31,19 @@
     <div class="order-progress">
       <div class="offer-card-progress-bar">
         <%= render "shared/progress_bar", offer: @order.offer %>
+        <% if @order.offer.target_reached? %>
+            <p class="target-reached"> <b>Target reached!</b> </p>
+            <% if @participants == 1 %>
+              <p class="target-reached">Thanks to you and another bulker we achieved the goal!</p>
+            <% else  %>
+              <p class="target-reached">Thanks to you and other <%= @participants %> bulkers we achieved the goal! </p>
+            <% end %>
+        <% end %>
       </div>
     </div>
   </div>
   <div>
-    <p class="share-text">Share this offer with others!</p>
+    <p class="share-text">Share it with others!</p>
     <div class='share-link' data-controller="clipboard copy-url">
       <input class='form-field-green' type="text" value=<%=offer_url(@order.offer)%>  data-clipboard-target="source"/>
       <button type="button" class="button btn-filled btn-clipboard" data-action="clipboard#copy click->copy-url#clicked" data-copy-url-target="button"><i class="fas fa-clipboard clipboard-icon"></i></button>
@@ -43,6 +51,6 @@
   </div>
   <div class="confirmation-buttons">
     <%= link_to "Keep Browsing", root_path, class: "button btn-filled confirmation-button"%>
-    <%= link_to "Dashboard", offers_path, class: "button btn-empty confirmation-button" %>
+    <%= link_to "Dashboard", orders_path, class: "button btn-empty confirmation-button" %>
   </div>
 </div>
