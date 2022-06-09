@@ -3,7 +3,7 @@
     <% if  @business.photo.attached? %>
       <%= cl_image_tag @business.photo.key, class: "business-image avatar" %>
     <% else %>
-      <%= image_tag "one-blank.png", class: "user-image" %>
+      <%= image_tag "blank-profile-picture-square.png", class: "user-image" %>
     <% end %>
   </div>
 
