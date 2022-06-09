@@ -137,7 +137,11 @@
           </div>
         <% end %>
       <% end %>
-    <p><%= @participants.count  %> other bulkers joined</p>
+    <% if @participants.count == 1 %>
+      <p><%= @participants.count  %> other bulker joined</p>
+    <% else %>
+      <p><%= @participants.count  %> other bulkers joined</p>
+    <% end %>
   </div>
 </div>
 

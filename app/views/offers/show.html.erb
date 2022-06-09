@@ -167,6 +167,7 @@
         </div>
       <% else  %>
         <div class="bulkers-in">
+          <div class="participants-avatars">
           <% @participants.first(3).each do |user| %>
             <%= link_to business_path(user.business) do %>
               <div class="three-users-box">
@@ -178,10 +179,11 @@
               </div>
             <% end %>
           <% end %>
+          </div>
           <% if @participants.count == 1 %>
-          <p><%= @participants.count  %> other bulker joined</p>
+            <p><%= @participants.count  %> other bulker joined</p>
           <% else %>
-          <p><%= @participants.count  %> other bulkers joined</p>
+            <p><%= @participants.count  %> other bulkers joined</p>
           <% end %>
         </div>
     <% end %>

@@ -36,7 +36,7 @@
             <% if @participants == 1 %>
               <p class="target-reached">Thanks to you and another bulker we achieved the goal!</p>
             <% else  %>
-              <p class="target-reached">Thanks to you and other <%= @participants %> bulkers we achieved the goal! </p>
+              <p class="target-reached">Thanks to you and <%= @participants - 1 %> other bulkers we achieved the goal! </p>
             <% end %>
         <% end %>
       </div>
