@@ -43,19 +43,19 @@
   </div>
 </div>
 <div class="amount-card">
-  <div class="order-ordered-info">
-    <h3>Order details</h3>
-    <div class="order-amount">
-      <p>Ordered amount</p><p><%= @order.amount %></p>
+  <div class="order-show-total">
+    <div class="totals">
+    <p><strong>Order amount</strong></p>
+    <p><%= @order.amount %></p>
     </div>
     <div class="order-show-total" data-controller='expired-decision'>
       <% if @order.offer.target_reached? %>
         <div class="totals">
           <p><strong>Total</strong></p>
-          <p><strong>€<%= (@order.amount * @order.offer.target_price).round(2) %></strong></p>
+          <p>€<%= (@order.amount * @order.offer.target_price).round(2) %></p>
         </div>
         <div class="savings">
-          <p>You are saving</p>
+          <p><strong>You are saving</strong></p>
           <p>€<%=(@order.amount * (@order.offer.initial_price - @order.offer.target_price)).round(2)%></p>
         </div>
         <div class="green-line"></div>
@@ -67,7 +67,7 @@
               <div class="button btn-expired-status">Accepted</div>
             </div>
           <% else %>
-            <p>There is still time for other bulkers to join this offer. Share this offer with others!</p>
+            <p>There is still time for other bulkers to join this offer. Share it with others!</p>
             <div class='share-link' data-controller="clipboard copy-url">
               <input class='form-field-green' type="text" value=<%=offer_url(@order.offer).gsub("www.","")%>  data-clipboard-target="source"/>
               <button type="button" class="button btn-filled btn-clipboard" data-action="clipboard#copy click->copy-url#clicked" data-copy-url-target="button"><i class="fas fa-clipboard clipboard-icon"></i></button>
@@ -137,7 +137,11 @@
           </div>
         <% end %>
       <% end %>
-    <p><%= @participants.count  %> other bulkers joined</p>
+    <% if @participants.count == 1 %>
+      <p><%= @participants.count  %> other bulker joined</p>
+    <% else %>
+      <p><%= @participants.count  %> other bulkers joined</p>
+    <% end %>
   </div>
 </div>
 
