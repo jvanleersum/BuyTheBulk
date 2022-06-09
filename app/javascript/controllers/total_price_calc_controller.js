@@ -9,7 +9,6 @@ export default class extends Controller {
     const total = (this.targetPriceValue * this.amountTarget.value).toFixed(2)
     this.totalTarget.innerText = `${total} €`
     const savings = ((this.unitPriceValue - this.targetPriceValue) * this.amountTarget.value).toFixed(2)
-    console.log(this.amountTarget.value)
     this.savingsTarget.innerText = `${savings} €`
     this.textTarget.innerText = "You will be saving"
     this.congratulationTarget.innerText = `Yaaay! By ordering ${this.amountTarget.value} units we reached the target!`
