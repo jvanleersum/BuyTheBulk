@@ -121,7 +121,7 @@
       <% if  @order.offer.user.business.photo.attached? %>
         <%= cl_image_tag @order.offer.user.business.photo.key, class: "user-image" %>
       <% else %>
-        <%= image_tag "one-blank.png", class: "user-image" %>
+        <%= image_tag "blank-profile-picture-square.png", class: "user-image" %>
       <% end %>
     <% end %>
   </div>
@@ -132,7 +132,7 @@
             <% if user.business.photo.attached? %>
               <%= cl_image_tag user.business.photo.key, class:"three-users"%>
             <% else %>
-              <%= image_tag "one-blank.png", class: "three-users" %>
+              <%= image_tag "blank-profile-picture-square.png", class: "three-users" %>
             <% end %>
           </div>
         <% end %>
