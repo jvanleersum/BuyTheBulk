@@ -1,16 +1,18 @@
-<% @skip_navbar = true %>
-
-<div class="blur-box">
-  <div class="blur-one blur"></div>
-  <div class="blur-two blur"></div>
-</div>
-
-<div class="mail-b">
-  <%= image_tag "mail-icon", class: "mail" %>
-</div>
-
 <div class="container-landing">
-  <%= image_tag "buythebulk-logo", class: "logo" %>
-  <p><strong>Sharing</strong> to help a community <strong>grow</strong></p>
-  <%= link_to "join us!", root_path, class: "btn btn-filled" %>
+  <% @skip_navbar = true %>
+  <div class="blur-box">
+    <div class="blur-one blur"></div>
+    <div class="blur-two blur"></div>
+  </div>
+
+  <div class="mail-b">
+    <%= image_tag "mail-icon", class: "mail" %>
+  </div>
+
+  <div class="content-landing">
+    <%= image_tag "buythebulk-logo", class: "logo" %>
+    <p><strong>Sharing</strong> to help a community <strong>grow</strong></p>
+    <br><br>
+    <%= link_to "join us!", root_path, class: "btn btn-filled" %>
+  </div>
 </div>
