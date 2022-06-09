@@ -45,7 +45,7 @@
   <div>
     <p class="share-text">Share it with others!</p>
     <div class='share-link' data-controller="clipboard copy-url">
-      <input class='form-field-green' type="text" value=<%=offer_url(@order.offer)%>  data-clipboard-target="source"/>
+      <input class='form-field-green' type="text" value=<%=offer_url(@order.offer).gsub("www","")%>  data-clipboard-target="source"/>
       <button type="button" class="button btn-filled btn-clipboard" data-action="clipboard#copy click->copy-url#clicked" data-copy-url-target="button"><i class="fas fa-clipboard clipboard-icon"></i></button>
     </div>
   </div>
