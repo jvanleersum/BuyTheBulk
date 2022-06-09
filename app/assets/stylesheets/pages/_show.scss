@@ -73,7 +73,7 @@
     justify-content: space-between;
   }
   p {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin: 0;
   }
   #congratulations {
@@ -228,4 +228,14 @@
         color: #9e010170;
       }
   }
+}
+
+.order_amount{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#order_amount{
+  width: 45%;
 }
