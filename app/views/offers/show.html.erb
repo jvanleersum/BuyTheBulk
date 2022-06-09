@@ -109,6 +109,7 @@
           </div>
           <div class="savings">
             <p data-total-price-calc-target="text">You could be saving</p>
+            <p data-total-price-calc-target="congratulation"></p>
             <p data-total-price-calc-target="savings"><i>0.00 €</i></p>
           </div>
             <%= f.submit "Order", class: "button btn-filled btn-order" %>
@@ -133,7 +134,7 @@
   <% end %>
 <% else %>
   <div class="amount-card">
-    <p class="order-inactive">Please <%= link_to "sign-in", "/users/sign_in" %> to place an order.</p>
+    <p class="order-inactive">Please <%= link_to "Log-in", new_user_registration_path %> to place an order.</p>
   </div>
 <% end %>
  <div class="suppliers-info">
