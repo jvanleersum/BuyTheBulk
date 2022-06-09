@@ -13,7 +13,11 @@
               <h4><%= order.offer.name %></h4>
               <div>
                 <p>Ordered on <%= order.created_at.strftime("%d-%m-%Y") %></p>
-                <p>Offer expires <%= order.offer.days_until_deadline%></p>
+                <% if order.offer.status == 'active' %>
+                  <p>Offer expires <%= order.offer.days_until_deadline%></p>
+                <% else %>
+                  <p>Offer expired on <%= order.offer.deadline.strftime("%d-%m-%Y") %></p>
+                <% end %>
               </div>
             </div>
             <i class="fas fa-angle-right order-arrow"></i>
