@@ -5,10 +5,13 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
   font-size: 120%;
-  height: 14vh;
+  height: 13vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  &:hover {
+    background-color: $green3;
+  }
 }
 .selected{
   background-color: $green2;
