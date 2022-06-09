@@ -9,6 +9,9 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= request.original_url %>" />
     <meta property="og:image:secure_url" itemprop="image" content="<%= meta_image %>" />
+    <% if content_for?(:meta_image_size) %>
+      <%= content_for :meta_image_size %>
+    <% end %>
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
 
