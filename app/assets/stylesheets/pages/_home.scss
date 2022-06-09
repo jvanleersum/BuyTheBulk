@@ -67,7 +67,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
-  width: 75%;
+  width: 75vw;
+  margin: 0 auto;
 }
 
 .search-product-form {
