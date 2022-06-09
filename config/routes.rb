@@ -10,6 +10,7 @@ Rails.application.routes.draw do
  # root to: 'pages#splash'
   # get "/orders/:id/confirmation", to: "orders#confirmation", as: :order_confirmation
   delete "/offers", to: 'offers#destroy_all', as: :destroy_all
+  get "/landing", to: 'pages#landing'
   resources :offers do
     resources :comments, only: [ :create ]
     resources :orders, only: [ :create ]
