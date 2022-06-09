@@ -14,12 +14,15 @@
   }
   #active-orders{
     border-radius: 0.5rem 0 0 0.5rem;
+    text-align: center;
   }
   #accomplished-orders{
     border-radius: 0;
+    text-align: center;
   }
   #expired-orders{
     border-radius: 0 0.5rem 0.5rem 0;
+    text-align: center;
   }
 }
 
@@ -29,9 +32,11 @@
   border: solid 2px $green2;
   border-radius: 0.5rem;
   margin: 10px 1rem;
+  height: 30vw;
   position: relative;
   .order-img {
-    width: 35vw;
+    width: 30vw;
+    height: 29vw;
     object-fit: cover;
     object-position: center;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;
