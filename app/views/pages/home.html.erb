@@ -23,7 +23,7 @@
       <h4 class=>Search by category</h4>
       <div class="categories-grid">
         <% @categories.each do |categorie|%>
-          <div class="card-category" data-action="click->select-categories#selectCategory" data-select-categories-target="category"><%= categorie.capitalize %></div>
+          <div class="card-category" data-action="click->select-categories#selectCategory" data-select-categories-target="category"><%= categorie.capitalize! %></div>
         <% end %>
       </div>
 
