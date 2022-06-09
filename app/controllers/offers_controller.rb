@@ -31,7 +31,9 @@ class OffersController < ApplicationController
     @order.offer = @offer
     participants = []
     @offer.orders.each do |order|
-      participants << order.user
+      if order.user != @offer.user
+        participants << order.user
+      end
     end
     @participants = participants.uniq
   end
