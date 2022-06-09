@@ -1,7 +1,10 @@
 <% content_for :meta_title, "#{@offer.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @offer.description %>
 <% content_for :meta_image, @offer.photo.key ? cl_image_path(@offer.photo.key, width: 256, height: 256, crop: :fill) : image_path('buythebulk-show.png')%>
-
+<% content_for :meta_image_size do %>
+  <meta property="og:image:width" content="256" />
+  <meta property="og:image:height" content="256" />
+<% end %>
 <div class="container-show">
 
 <%# Card with OFFER details %>
