@@ -46,6 +46,8 @@ class OrdersController < ApplicationController
   def confirmation
     @order = Order.find(params[:order_id])
     authorize @order
+    @participants = @order.offer.orders.uniq.count
+
   end
 
   def destroy
@@ -63,7 +65,7 @@ class OrdersController < ApplicationController
       format.html { redirect_to order_path(@order) }
       format.json { render json: { expired_buttons: render_to_string(partial: "expired_buttons.html.erb", locals: { order: @order }) } }
     end
-    
+
   end
 
   def reject

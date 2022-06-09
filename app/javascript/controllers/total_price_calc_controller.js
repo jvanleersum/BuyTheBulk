@@ -9,7 +9,6 @@ export default class extends Controller {
     const total = (this.targetPriceValue * this.amountTarget.value).toFixed(2)
     this.totalTarget.innerText = `${total} €`
     const savings = ((this.unitPriceValue - this.targetPriceValue) * this.amountTarget.value).toFixed(2)
-    console.log('heeeyeyeyeey')
     this.savingsTarget.innerText = `${savings} €`
     this.textTarget.innerText = "You will be saving"
     this.congratulationTarget.innerText = `Yaaay! By ordering ${this.amountTarget.value} units we reached the target!`
@@ -20,6 +19,7 @@ export default class extends Controller {
     const savings = (total - (this.targetPriceValue * this.amountTarget.value)).toFixed(2)
     this.textTarget.innerText = "You could be saving"
     this.savingsTarget.innerText = `${savings} €`
+    this.congratulationTarget.innerText = ""
     if ((parseInt(this.amountTarget.value) + this.currentAmountValue) >= this.targetAmountValue) {
 
       this.reachedPrice()
