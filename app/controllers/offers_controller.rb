@@ -36,6 +36,7 @@ class OffersController < ApplicationController
       end
     end
     @participants = participants.uniq
+    
   end
 
   def new
